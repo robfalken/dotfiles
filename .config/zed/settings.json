@@ -1,0 +1,89 @@
+// documentation: https://zed.dev/docs/configuring-zed
+{
+  "languages": {
+    "Rust": {
+      "inlay_hints": {
+        "enabled": true
+      }
+    },
+    "Ruby": {
+      "formatter": {
+        "external": {
+          "command": "rufo",
+          "arguments": ["-x"]
+        }
+      }
+    }
+  },
+  "features": {
+    "inline_completion_provider": "supermaven"
+  },
+  "show_inline_completions": false,
+  "file_types": {
+    "Shell Script": ["env", "envrc"]
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+  "cursor_blink": false,
+  "theme": "Rosé Pine Moon",
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "relative_line_numbers": true,
+  "tab_size": 2,
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "never"
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2"
+  },
+  "journal": {
+    "hour_format": "hour24",
+    "path": "~/journal"
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "show_whitespaces": "boundary",
+  "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
+  "terminal": {
+    "font_family": "Zed Plex Mono"
+  },
+  "project_panel": {
+    "dock": "right"
+  },
+  "lsp": {
+    "deno": {
+      "settings": {
+        "deno": {
+          "enable": false
+        }
+      }
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "enable": "skip_trivial",
+            "useParameterNames": true
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
+        }
+      }
+    }
+  }
+}
