@@ -5,8 +5,9 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
-
+after-startup-command = [
+  'exec-and-forget borders active_color=0xff3e8fb0 inactive_color=0x00000000 width=5.0',
+]
 # Start AeroSpace at login
 start-at-login = true
 
@@ -106,15 +107,15 @@ alt-shift-cmd-ctrl-minus = 'resize smart -50'
 alt-shift-cmd-ctrl-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
+alt-shift-cmd-ctrl-1 = 'workspace 1'
+alt-shift-cmd-ctrl-2 = 'workspace 2'
+alt-shift-cmd-ctrl-3 = 'workspace 3'
+alt-shift-cmd-ctrl-4 = 'workspace 4'
+alt-shift-cmd-ctrl-5 = 'workspace 5'
+alt-shift-cmd-ctrl-6 = 'workspace 6'
+alt-shift-cmd-ctrl-7 = 'workspace 7'
+alt-shift-cmd-ctrl-8 = 'workspace 8'
+alt-shift-cmd-ctrl-9 = 'workspace 9'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -156,4 +157,16 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'kitty'
-run = ['move-node-to-workspace 2']    # The callback itself
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'com.tinyspeck.slackmacgap'
+run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'com.apple.MobileSMS'
+run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'com.spotify.client'
+run = ['move-node-to-workspace 4']
