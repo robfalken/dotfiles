@@ -8,6 +8,4 @@ alias lgc="lazygit --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias gs="git status -s"
 alias gb="lazygit branch"
 alias glg="git log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate=full"
-
-alias restart-yabai="yabai --restart-service"
-alias restart-sketchybar="brew services restart sketchybar"
+alias reload-zshrc="source ~/.zshrc"

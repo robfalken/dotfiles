@@ -16,6 +16,7 @@ brew "starship"
 brew "tmux"
 brew "urlview"
 brew "zoxide"
+brew "zsh-syntax-highlighting"
 
 cask "1password-cli"
 cask "nikitabobko/tap/aerospace"
