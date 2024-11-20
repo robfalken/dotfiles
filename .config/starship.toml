@@ -1,0 +1,8 @@
+[ruby]
+symbol = ' '
+
+[git_branch]
+symbol = '󰘬 '
+
+[rust]
+symbol = ' '
