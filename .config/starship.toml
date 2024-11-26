@@ -6,3 +6,6 @@ symbol = '󰘬 '
 
 [rust]
 symbol = ' '
+
+[package]
+symbol = "󰏗 "
