@@ -27,7 +27,15 @@
       "g i": "editor::GoToImplementation",
       "space r t": "task::Spawn",
       "space r l": "task::Rerun",
-      "space a c": "assistant::NewContext"
+      "space a c": "assistant::NewContext",
+      "space c n": "workspace::ClearAllNotifications"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space c a": "editor::ToggleCodeActions",
+      "space c r": "editor::Rename"
     }
   },
   {
@@ -83,7 +91,6 @@
     }
   }
 ]
-// [
 // 	{
 // 		"context": "Editor && VimControl && !VimWaiting && !menu",
 // 		"bindings": {
