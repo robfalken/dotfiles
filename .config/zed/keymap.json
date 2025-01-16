@@ -15,7 +15,7 @@
     "context": "Editor",
     "bindings": {
       "ctrl-s": "workspace::Save",
-      "ctrl-\\": "pane::SplitLeft",
+      "ctrl-\\": "pane::SplitRight",
       "ctrl-c a": "editor::ToggleCodeActions",
       "ctrl-c r": "editor::Rename",
       "ctrl-space ctrl-space": "pane::AlternateFile"

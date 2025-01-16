@@ -58,10 +58,16 @@
   "show_whitespaces": "boundary",
   "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
   "terminal": {
-    "font_family": "Zed Plex Mono"
+    "font_family": "Zed Plex Mono",
+    "line_height": "standard",
+    "button": false
   },
   "project_panel": {
-    "dock": "right"
+    "dock": "right",
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
   },
   "lsp": {
     "deno": {
