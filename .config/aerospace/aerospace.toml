@@ -187,3 +187,7 @@ run = ['move-node-to-workspace 4']
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.adobe.lightroomCC'
+run = ['move-node-to-workspace 9']
