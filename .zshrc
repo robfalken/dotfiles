@@ -7,3 +7,4 @@ source $XDG_CONFIG_HOME/zsh/eval.sh
 source $XDG_CONFIG_HOME/zsh/source.sh
 
 autoload -Uz compinit && compinit
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
