@@ -2,12 +2,13 @@ local theme = require("theme")
 local colors = require("colors")
 
 local clock = sbar.add("item", {
-  padding_left = 10,
-  padding_right = 10,
+  padding_left = 5,
+  padding_right = 5,
   icon = { drawing = false },
   label = {
     font = {
-      style = "Semibold",
+      -- size = 12,
+      -- style = "Bold",
     },
   },
   position = "right",
@@ -17,11 +18,13 @@ local clock = sbar.add("item", {
 local calendar = sbar.add("item", {
   icon = { drawing = false },
   padding_right = 0,
-  padding_left = 10,
+  padding_left = 5,
+  y_offset = -1,
   position = "right",
   update_freq = 15,
   label = {
     font = {
+      size = 10,
       color = colors.love
     }
   }

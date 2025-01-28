@@ -1,4 +1,11 @@
+local helpers = require("helpers")
+
 require("items.apple")
 require("items.workspaces")
 require("items.calendar")
-require("items.battery")
+require("items.volume")
+require("items.keyboard")
+
+if not helpers.is_desktop() then
+  require("items.battery")
+end

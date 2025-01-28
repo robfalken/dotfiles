@@ -18,17 +18,18 @@ sbar.default({
     font = {
       family = settings.font.text,
       style = "Bold",
-      size = 14.0,
+      size = 12.0,
     },
     color = colors.text,
     padding_left = settings.padding,
     padding_right = settings.padding * 2,
   },
   background = {
-    height = 32,
-    corner_radius = 9,
-    border_width = 2,
+    height = 20,
+    corner_radius = 3,
+    border_width = 1,
   },
   padding_left = 0,
   padding_right = 0,
+  y_offset = 0,
 })

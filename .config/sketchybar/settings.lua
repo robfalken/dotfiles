@@ -1,7 +1,7 @@
 return {
   font = {
     text = "SF Pro",
-    icon = "Hack Nerd Font",
+    icon = "Symbols Nerd Font Mono",
   },
   padding = 0,
   spacing = 0,

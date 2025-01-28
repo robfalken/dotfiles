@@ -22,36 +22,61 @@ local function parse_string_to_table(s)
   return result
 end
 
-local current_file = io.popen("aerospace list-workspaces --focused")
-local current_output = current_file:read("*a")
-current_file:close()
-local current_workspace = string.gsub(current_output, "%s+", "")
+local function read_command(cmd)
+  local file = io.popen(cmd)
+  if file == nil then
+    return
+  end
 
+  local output = file:read("*a")
+  file:close()
 
-local all_file = io.popen("aerospace list-workspaces --all")
-local all_output = all_file:read("*a")
-all_file:close()
-
-local workspaces = parse_string_to_table(all_output)
-for i, workspace in ipairs(workspaces) do
-  local space = sbar.add("item", "space." .. i, {
-    icon = {
-      string = ws_icons[i] or workspace,
-      color = colors.white,
-      highlight_color = colors.love,
-      highlight = workspace == current_workspace
-    },
-    label = { drawing = true },
-    padding_left = 1,
-    padding_right = 1,
-  })
-
-  space:subscribe("aerospace_workspace_change", function(env)
-    local selected = env.FOCUSED_WORKSPACE == workspace
-    space:set({
-      icon = { highlight = selected, },
-      label = { highlight = selected },
-      background = { border_color = selected and colors.white or colors.bg2 }
-    })
-  end)
+  return output
 end
+
+local function current_workspace()
+  local output = read_command("aerospace list-workspaces --focused") or ""
+
+  return string.gsub(output, "%s+", "")
+end
+
+local function all_workspaces()
+  local output = read_command("aerospace list-workspaces --all")
+  if output == nil then
+    return {}
+  end
+
+  return parse_string_to_table(output)
+end
+
+local function setup()
+  for i, workspace in ipairs(all_workspaces()) do
+    local space = sbar.add("item", "space." .. i, {
+      background = {
+        drawing = true,
+        color = colors.surface,
+      },
+      icon = {
+        y_offset = 1,
+        string = ws_icons[i] or workspace,
+        color = colors.white,
+        highlight_color = colors.love,
+        highlight = workspace == current_workspace(),
+        padding_left = 3,
+        padding_right = 3,
+      },
+      label = { drawing = true, string = workspace, padding_right = 5 },
+    })
+
+    space:subscribe("aerospace_workspace_change", function(env)
+      local selected = env.FOCUSED_WORKSPACE == workspace
+      space:set({
+        icon = { highlight = selected, },
+        label = { highlight = selected },
+        background = { border_color = selected and colors.white or colors.bg2 }
+      })
+    end)
+  end
+end
+
+setup()
