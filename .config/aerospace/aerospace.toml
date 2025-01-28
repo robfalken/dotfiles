@@ -113,8 +113,8 @@ alt-cmd-shift-k = 'move up'
 alt-cmd-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-cmd-ctrl-minus = 'resize smart -50'
-alt-shift-cmd-ctrl-equal = 'resize smart +50'
+alt-shift-cmd-ctrl-minus = 'resize smart -100'
+alt-shift-cmd-ctrl-equal = 'resize smart +100'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-shift-cmd-ctrl-0 = 'workspace 0'
@@ -127,6 +127,9 @@ alt-shift-cmd-ctrl-6 = 'workspace 6'
 alt-shift-cmd-ctrl-7 = 'workspace 7'
 alt-shift-cmd-ctrl-8 = 'workspace 8'
 alt-shift-cmd-ctrl-9 = 'workspace 9'
+
+alt-shift-cmd-ctrl-z = 'fullscreen'
+alt-shift-cmd-ctrl-f = 'layout floating tiling'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-0 = 'move-node-to-workspace 0 --focus-follows-window'

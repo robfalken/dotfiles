@@ -17,6 +17,11 @@ local ws_icons = {
 
 helpers.add_margin("left")
 
+local function handle_click(env)
+  local idx = string.match(env.NAME, "[1-9]+")
+  sbar.exec("aerospace workspace " .. idx)
+end
+
 local function parse_string_to_table(s)
   local result = {}
   for line in s:gmatch("([^\n]+)") do
@@ -56,7 +61,7 @@ local function setup()
   for i, workspace in ipairs(all_workspaces()) do
     helpers.add_margin("left")
     local is_current = workspace == current_workspace()
-    local space = sbar.add("item", "space." .. i, {
+    local space = sbar.add("item", "space." .. i - 1, {
       background = {
         drawing = true,
         border_width = 1,
@@ -88,6 +93,7 @@ local function setup()
 
     space:subscribe("aerospace_workspace_change", function(env)
       local selected = env.FOCUSED_WORKSPACE == workspace
+
       space:set({
         icon = { highlight = selected, },
         label = { highlight = selected },
@@ -96,6 +102,8 @@ local function setup()
         }
       })
     end)
+
+    space:subscribe("mouse.clicked", handle_click)
   end
 end
 
