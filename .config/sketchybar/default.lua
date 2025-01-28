@@ -13,6 +13,7 @@ sbar.default({
     color = colors.text,
     padding_left = settings.padding * 2,
     padding_right = settings.padding,
+    y_offset = 1,
   },
   label = {
     font = {
@@ -28,6 +29,7 @@ sbar.default({
     height = 20,
     corner_radius = 3,
     border_width = 1,
+    color = colors.overlay
   },
   padding_left = 0,
   padding_right = 0,

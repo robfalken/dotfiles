@@ -15,4 +15,5 @@ return {
   highlight_med = 0xFF44415a,  -- #44415a
   highlight_high = 0xFF56526e, -- #56526e
   transparent = 0x00000000,    -- #56526e
+  white = 0xFFFFFFFF,
 }

@@ -1,5 +1,6 @@
 local colors = require("colors")
 local icons = require("icons")
+local helpers = require("helpers")
 
 local ws_icons = {
   icons.workspaces.home,    -- 0
@@ -13,6 +14,8 @@ local ws_icons = {
   icons.workspaces.code,    -- 8
   icons.workspaces.browser, -- 9
 }
+
+helpers.add_margin("left")
 
 local function parse_string_to_table(s)
   local result = {}
@@ -51,21 +54,36 @@ end
 
 local function setup()
   for i, workspace in ipairs(all_workspaces()) do
+    helpers.add_margin("left")
+    local is_current = workspace == current_workspace()
     local space = sbar.add("item", "space." .. i, {
       background = {
         drawing = true,
-        color = colors.surface,
+        border_width = 1,
+        border_color = is_current and colors.rose or colors.base
       },
       icon = {
         y_offset = 1,
         string = ws_icons[i] or workspace,
-        color = colors.white,
+        color = colors.subtle,
         highlight_color = colors.love,
-        highlight = workspace == current_workspace(),
+        highlight = is_current,
         padding_left = 3,
         padding_right = 3,
       },
-      label = { drawing = true, string = workspace, padding_right = 5 },
+      label = {
+        drawing = true,
+        string = workspace,
+        padding_right = 5,
+        padding_left = 2,
+        color = colors.subtle,
+        highlight_color = colors.white,
+        highlight = is_current,
+        y_offset = -1,
+        font = {
+          size = 10
+        },
+      },
     })
 
     space:subscribe("aerospace_workspace_change", function(env)
@@ -73,7 +91,9 @@ local function setup()
       space:set({
         icon = { highlight = selected, },
         label = { highlight = selected },
-        background = { border_color = selected and colors.white or colors.bg2 }
+        background = {
+          border_color = selected and colors.rose or colors.base
+        }
       })
     end)
   end

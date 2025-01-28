@@ -1,9 +1,12 @@
 local _M = {}
 
-function _M.add_margin(position)
+function _M.add_margin(position, width)
   sbar.add("item", {
+    background = {
+      drawing = false
+    },
     position = position or "right",
-    width = 3
+    width = width or 3
   })
 end
 
