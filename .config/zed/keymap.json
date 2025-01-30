@@ -28,7 +28,8 @@
       "space r t": "task::Spawn",
       "space r l": "task::Rerun",
       "space a c": "assistant::NewContext",
-      "space c n": "workspace::ClearAllNotifications"
+      "space c n": "workspace::ClearAllNotifications",
+      "space c s": "buffer_search::Dismiss"
     }
   },
   {
@@ -62,7 +63,7 @@
     }
   },
   {
-    "context": "Dock && !Terminal Panel", // In "Terminal Panel" I want to be able to `ctrl-w` without latency.
+    "context": "Dock && !TerminalPanel", // In "Terminal Panel" I want to be able to `ctrl-w` without latency.
     "bindings": {
       "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
       "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
