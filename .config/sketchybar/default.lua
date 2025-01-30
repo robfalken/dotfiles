@@ -1,4 +1,3 @@
-local settings = require("settings")
 local colors = require("colors")
 
 -- Equivalent to the --default domain
@@ -6,30 +5,30 @@ sbar.default({
   updates = "when_shown",
   icon = {
     font = {
-      family = settings.font.icon,
+      family = "Symbols Nerd Font Mono",
       style = "Normal",
       size = 14.0,
     },
     color = colors.text,
-    padding_left = settings.padding * 2,
-    padding_right = settings.padding,
+    padding_left = 4,
+    padding_right = 0,
     y_offset = 1,
   },
   label = {
     font = {
-      family = settings.font.text,
-      style = "Bold",
-      size = 12.0,
+      family = "Futura",
+      style = "Normal",
+      size = 10.0,
     },
     color = colors.text,
-    padding_left = settings.padding,
-    padding_right = settings.padding * 2,
+    padding_left = 6,
+    padding_right = 6,
   },
   background = {
     height = 20,
     corner_radius = 3,
     border_width = 1,
-    color = colors.overlay
+    color = colors.surface
   },
   padding_left = 0,
   padding_right = 0,

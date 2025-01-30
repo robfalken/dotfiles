@@ -12,13 +12,8 @@ local item = sbar.add("item", {
   icon = {
     string = icons.keyboard,
     color = colors.text,
-    padding_left = 5,
-    padding_right = 5,
-    y_offset = 1,
   },
   label = {
-    padding_right = 5,
-    drawing = true,
     font = {
       style = "Bold",
     },
@@ -27,22 +22,32 @@ local item = sbar.add("item", {
 
 local layouts = {
   ["U.S."] = {
-    label = "US",
+    label = {
+      string = "EN",
+      color = colors.white,
+    },
     icon = {
       color = colors.pine,
     },
+    background = {
+      color = colors.surface
+    },
   },
   ["Swedish - Pro"] = {
-    label = "SE",
+    label = {
+      string = "SV",
+      color = colors.surface,
+    },
+    background = {
+      color = colors.gold
+    },
     icon = {
-      color = colors.gold,
+      color = colors.surface,
     },
   },
 }
 
-sbar.add("bracket", { item.name }, {
-  background = theme.bracket.background,
-})
+sbar.add("bracket", { item.name }, {})
 
 local function update()
   sbar.exec(

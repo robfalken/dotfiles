@@ -2,37 +2,29 @@ local theme = require("theme")
 local colors = require("colors")
 
 local clock = sbar.add("item", {
-  padding_left = 5,
-  padding_right = 5,
-  icon = { drawing = false },
-  label = {
-    font = {
-      -- size = 12,
-      -- style = "Bold",
-    },
-  },
   position = "right",
-  update_freq = 15,
-})
-
-local calendar = sbar.add("item", {
   icon = { drawing = false },
-  padding_right = 0,
-  padding_left = 5,
-  y_offset = -1,
-  position = "right",
   update_freq = 15,
   label = {
     font = {
-      size = 10,
-      color = colors.love
+      style = "Bold"
     }
   }
 })
 
-sbar.add("bracket", { clock.name, calendar.name }, {
-  background = theme.bracket.background,
+local calendar = sbar.add("item", {
+  position = "right",
+  icon = { drawing = false },
+  update_freq = 1000,
+  label = {
+    color = colors.subtle,
+    font = {
+      size = 10,
+    }
+  }
 })
+
+sbar.add("bracket", { clock.name, calendar.name }, {})
 
 local function update_time()
   local time = os.date("%H:%M")
@@ -47,11 +39,7 @@ local function update_date()
   local date = os.date("%a %d %b")
   calendar:set({
     label = {
-      font = {
-        style = "Normal"
-      },
       string = date,
-      color = colors.subtle
     }
   })
 end

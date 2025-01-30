@@ -1,28 +1,36 @@
 local icons = require("icons")
 local colors = require("colors")
-local theme = require("theme")
 local helpers = require("helpers")
 
 helpers.add_margin()
 
 local volume = sbar.add("item", {
   position = "right",
-  background = theme.bracket.background,
+  label = {
+    font = {
+      style = "Bold"
+    },
+    padding_left = 2,
+  },
   icon = {
     color = colors.love,
     string = icons.volume._10,
-    padding_right = 6,
-    padding_left = 3,
+    padding_right = 4,
   },
 })
 
 volume:subscribe("volume_change", function(env)
   local percentage = tonumber(env.INFO)
   local icon = icons.volume._0
-  local color = colors.gold
-  local background = theme.bracket.background.color
+  local color = colors.pine
+  local background = colors.gold
+  local is_muted = percentage == 0
 
-  if percentage > 60 then
+  if percentage == 100 then
+    icon = icons.volume._100
+    color = colors.love
+  elseif percentage > 60 then
+    color = colors.gold
     icon = icons.volume._100
   elseif percentage > 30 then
     icon = icons.volume._66
@@ -34,13 +42,12 @@ volume:subscribe("volume_change", function(env)
 
   local text = percentage .. "%"
   local drawing = true
-  if percentage == 0 then
-    color = colors.base
+  if is_muted then
+    color = colors.surface
     background = colors.love
     drawing = false
   else
-    color = colors.pine
-    background = colors.overlay
+    background = colors.surface
     drawing = true
   end
 
@@ -49,12 +56,7 @@ volume:subscribe("volume_change", function(env)
     label = {
       string = text,
       drawing = drawing,
-      padding_right = 3,
-      font = {
-        size = 12,
-        style = "Bold"
-      }
     },
-    icon = { string = icon, color = color, y_offset = 1 },
+    icon = { string = icon, color = color },
   })
 end)

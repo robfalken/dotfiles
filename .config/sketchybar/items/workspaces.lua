@@ -62,29 +62,20 @@ local function setup()
     helpers.add_margin("left")
     local is_current = workspace == current_workspace()
     local space = sbar.add("item", "space." .. i - 1, {
-      background = {
-        drawing = true,
-        border_width = 1,
-        border_color = is_current and colors.rose or colors.base
-      },
       icon = {
-        y_offset = 1,
         string = ws_icons[i] or workspace,
-        color = colors.subtle,
+        color = colors.muted,
         highlight_color = colors.love,
         highlight = is_current,
-        padding_left = 3,
-        padding_right = 3,
+        font = {
+          size = 12
+        }
       },
       label = {
-        drawing = true,
         string = workspace,
-        padding_right = 5,
-        padding_left = 2,
         color = colors.subtle,
         highlight_color = colors.white,
         highlight = is_current,
-        y_offset = -1,
         font = {
           size = 10
         },
@@ -97,9 +88,6 @@ local function setup()
       space:set({
         icon = { highlight = selected, },
         label = { highlight = selected },
-        background = {
-          border_color = selected and colors.rose or colors.base
-        }
       })
     end)
 

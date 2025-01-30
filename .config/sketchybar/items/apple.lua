@@ -2,15 +2,20 @@ local icons = require("icons")
 local colors = require("colors")
 
 sbar.add("item", {
-  padding_right = 3,
   background = {
-    drawing = false
+    padding_left = 0,
+    color = colors.iris,
   },
   icon = {
+    font = {
+      size = 12
+    },
+    padding_left = 4,
+    padding_right = 6,
     string = icons.apple,
-    color = colors.gold,
+    color = colors.surface,
   },
   label = {
-    drawing = true,
+    drawing = false,
   },
 })
