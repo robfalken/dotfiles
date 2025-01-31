@@ -15,7 +15,7 @@ local ws_icons = {
   icons.workspaces.browser,  -- 9
 }
 
-helpers.add_margin("left")
+helpers.add_margin("left", 20)
 
 local function handle_click(env)
   local idx = string.match(env.NAME, "[1-9]+")

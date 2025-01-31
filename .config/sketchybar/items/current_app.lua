@@ -1,34 +1,50 @@
 local helpers = require("helpers")
 local colors = require("colors")
 
-helpers.add_margin("left", 9)
+helpers.add_margin("left", 20)
 
-local front_app = sbar.add("item", {
+local current_app_icon = sbar.add("item", {
+  background = {
+    color = colors.transparent,
+    image = {
+      scale = 0.75
+    }
+  },
   icon = {
     drawing = false,
   },
   label = {
-    padding_left = 6,
-    padding_right = 5,
+    drawing = false
+  },
+})
+
+local current_app_name = sbar.add("item", {
+  background = {
+    color = colors.highlight_low
+  },
+  icon = {
+    drawing = false,
+  },
+  label = {
     font = {
-      size = 12.0
+      size = 12.0,
+      style = "Bold"
     }
   },
 })
 
-front_app:subscribe("front_app_switched", function(env)
-  front_app:set({
-    padding_left = 0,
-    background = {
-      color = colors.transparent,
-      image = {
-        string = "app." .. env.INFO,
-        scale = 0.75
-      }
-    },
+current_app_name:subscribe("front_app_switched", function(env)
+  current_app_name:set({
     label = {
       string = env.INFO,
-      padding_left = 25
+    },
+  })
+
+  current_app_icon:set({
+    background = {
+      image = {
+        string = "app." .. env.INFO,
+      }
     },
   })
 end)
