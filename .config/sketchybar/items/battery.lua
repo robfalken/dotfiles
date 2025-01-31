@@ -5,8 +5,6 @@ local theme = require("theme")
 local battery = sbar.add("item", "widgets.battery", {
   position = "right",
   update_freq = 180,
-  padding_right = 10,
-  padding_left = 10,
 })
 
 battery:subscribe({ "routine", "power_source_change", "system_woke" }, function()
@@ -56,20 +54,6 @@ battery:subscribe({ "routine", "power_source_change", "system_woke" }, function(
   end)
 end)
 
-sbar.add("item", "widgets.battery.paddingl", {
-  position = "right",
-  width = 10,
-  padding_right = 10,
-  padding_left = 10,
-})
-
 sbar.add("bracket", "widgets.battery.bracket", { battery.name }, {
   background = theme.bracket.background,
-})
-
-sbar.add("item", "widgets.battery.padding", {
-  position = "right",
-  width = 10,
-  padding_right = 10,
-  padding_left = 10,
 })
