@@ -33,6 +33,7 @@ return {
     music = "󰝚",
     notes = "",
     photo = "",
+    settings = "",
   },
 
   volume = {

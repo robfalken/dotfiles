@@ -3,16 +3,16 @@ local icons = require("icons")
 local helpers = require("helpers")
 
 local ws_icons = {
-  icons.workspaces.home,    -- 0
-  icons.workspaces.misc,    -- 1
-  icons.workspaces.misc,    -- 2
-  icons.workspaces.misc,    -- 3
-  icons.workspaces.notes,   -- 4
-  icons.workspaces.photo,   -- 5
-  icons.workspaces.music,   -- 6
-  icons.workspaces.message, -- 7
-  icons.workspaces.code,    -- 8
-  icons.workspaces.browser, -- 9
+  icons.workspaces.home,     -- 0
+  icons.workspaces.settings, -- 1
+  icons.workspaces.misc,     -- 2
+  icons.workspaces.misc,     -- 3
+  icons.workspaces.notes,    -- 4
+  icons.workspaces.photo,    -- 5
+  icons.workspaces.music,    -- 6
+  icons.workspaces.message,  -- 7
+  icons.workspaces.code,     -- 8
+  icons.workspaces.browser,  -- 9
 }
 
 helpers.add_margin("left")
