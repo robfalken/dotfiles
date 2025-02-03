@@ -68,7 +68,7 @@ inner.vertical = 10
 outer.left = 10
 outer.bottom = 10
 outer.right = 10
-outer.top = [{ monitor."LG" = 34 }, 47]
+outer.top = [{ monitor."LG" = 39 }, 47]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -211,3 +211,7 @@ run = ['move-node-to-workspace 6']
 [[on-window-detected]]
 if.app-id = 'com.adobe.lightroomCC'
 run = ['move-node-to-workspace 5']
+
+[[on-window-detected]]
+if.app-id = 'com.runningwithcrayons.Alfred-Preferences'
+run = ['move-node-to-workspace 2']
