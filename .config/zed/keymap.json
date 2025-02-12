@@ -63,12 +63,12 @@
     }
   },
   {
-    "context": "Dock && !TerminalPanel", // In "Terminal Panel" I want to be able to `ctrl-w` without latency.
+    "context": "!VimWaiting", // In "Terminal Panel" I want to be able to `ctrl-w` without latency.
     "bindings": {
-      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"],
-      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"]
+      "ctrl-shift-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-shift-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-shift-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-shift-k": ["workspace::ActivatePaneInDirection", "Up"]
     }
   },
 
