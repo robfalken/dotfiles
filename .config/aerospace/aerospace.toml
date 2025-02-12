@@ -145,12 +145,11 @@ alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
 
 alt-z = 'exec-and-forget open -a Zed'
 alt-k = 'exec-and-forget open -a kitty'
-alt-w = 'exec-and-forget open -a Safari'
 alt-b = 'exec-and-forget open -a Arc'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-alt-tab = 'workspace-back-and-forth'
+# alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
