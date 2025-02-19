@@ -143,9 +143,10 @@ alt-shift-7 = 'move-node-to-workspace 7 --focus-follows-window'
 alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
 alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
 
-alt-z = 'exec-and-forget open -a Zed'
-alt-k = 'exec-and-forget open -a kitty'
+alt-c = 'exec-and-forget open -a Zed'
+alt-t = 'exec-and-forget open -a kitty'
 alt-b = 'exec-and-forget open -a Arc'
+alt-m = 'exec-and-forget open -a Spotify'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
