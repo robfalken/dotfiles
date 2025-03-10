@@ -42,6 +42,7 @@
     // "background": "#1F2034",
     //   "editor.indent_guide": "#303150",
     //   "editor.indent_guide_active": "#535479",
+    "editor.document_highlight.bracket_background": "#000",
     "editor.background": "#26242E",
     "editor.gutter.background": "#211F28",
     "editor.line_number": "#716186",
