@@ -1,34 +1,67 @@
-// documentation: https://zed.dev/docs/configuring-zed
 {
-  "icon_theme": "Catppuccin Frappé",
-  "languages": {
-    "TSX": {
-      "show_edit_predictions": true
+  "assistant": {
+    "default_model": {
+      "model": "claude-3-7-sonnet-latest",
+      "provider": "zed.dev"
     },
-    "TypeScript": {
-      "show_edit_predictions": true
-    },
-    "Rust": {
-      "show_edit_predictions": true,
-      "inlay_hints": {
-        "enabled": true
+    "version": "2"
+  },
+  "buffer_font_fallbacks": [
+    "Symbols Nerd Font Mono"
+  ],
+  "buffer_font_family": "Zed Plex Mono",
+  "buffer_font_size": 12,
+  "buffer_font_weight": 100,
+  "cursor_blink": false,
+  "experimental.theme_overrides": {
+    "background": "#26242E",
+    "editor.active_line.background": "#1D1B25",
+    "editor.active_line_number": "#8E89A6",
+    "editor.background": "#26242E",
+    "editor.foreground": "#E0DDE4",
+    "editor.gutter.background": "#201E28",
+    "editor.indent_guide": "#534B74",
+    "editor.indent_guide_active": "#E0DDE4",
+    "editor.line_number": "#534B74",
+    "invisible": "#534B74",
+    "players": [
+      {
+        "cursor": "#FFC260",
+        "selection": "#FFC26032"
       }
-    },
-    "Ruby": {
-      "formatter": {
-        "external": {
-          "command": "rufo",
-          "arguments": ["-x"]
-        }
+    ],
+    "syntax": {
+      "attribute": {
+        "color": "#FF577F"
+      },
+      "comment": {
+        "color": "#665783"
+      },
+      "hint": {
+        "color": "#473D5A"
+      },
+      "keyword": {
+        "color": "#B4A2DB"
+      },
+      "property": {
+        "color": "#96ECBC"
+      },
+      "string": {
+        "color": "#27BF69"
+      },
+      "type": {
+        "color": "#FFC260"
       }
     }
   },
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "show_edit_predictions": false,
   "file_types": {
-    "Shell Script": ["env", "envrc"]
+    "Shell Script": [
+      "env",
+      "envrc"
+    ]
   },
   "git": {
     "git_gutter": "tracked_files",
@@ -36,147 +69,34 @@
       "enabled": true
     }
   },
-  "cursor_blink": false,
-  "theme": "NSFW",
-  "experimental.theme_overrides": {
-    // "background": "#1F2034",
-    //   "editor.indent_guide": "#303150",
-    //   "editor.indent_guide_active": "#535479",
-    "editor.document_highlight.bracket_background": "#000",
-    "editor.background": "#26242E",
-    "editor.gutter.background": "#211F28",
-    "editor.line_number": "#716186",
-    "editor.foreground": "#E0DDE4",
-    "editor.active_line_number": "#E0DDE4",
-    "editor.active_line.background": "#2C2938",
-    "panel.background": "#211F28",
-    "border": "#",
-    "hint": "#473D5A",
-    "text": "#E0DDE4",
-    "text.muted": "#716186",
-    "predictive": "#9A73ED",
-    "predictive.background": "#f00",
-    "predictive.border": "#ff0000",
-    // Git
-    "created": "#27BF69",
-    "modified": "#FFDA69",
-    // Severity
-    "info": "#57B6FF",
-    "warning": "#FFCA57",
-    "error": "#FF577F",
-    "warning.background": "#211F28",
-    "warning.border": "#FFDA69",
-    //		"status_bar.background": "#1d1d30" // Bottom bar of window
-    //   "title_bar.background": "#171826", // Top bar of window
-    //   "toolbar.background": "#1d1d30", // Breadcrumbs bar
-    //   "elevated_surface.background": "#242438",
-    //   "border": "#303150", // All the borders
-    //   "search.match_background": "#6E6E94", // Matched text during search
-    //   "element.background": "#2C2C40", // "You" in assistant, etc.
-    //   "element.active": "#FF0000",
-    //   "element.selected": "#36364C", // Selected item in file tree
-    //   "element.hover": "#36364C",
-    "players": [
-      {
-        "cursor": "#FFCB63",
-        "background": "#f00",
-        "selection": "#FFD00022"
-        // "selection": "#2E2849"
-      }
-    ],
-    "syntax": {
-      "property": {
-        "color": "#96ECBC"
-      },
-      "comment": {
-        "font_style": "italic",
-        "color": "#665783"
-      },
-      "type": {
-        "color": "#FFC260"
-      },
-      "string": {
-        "color": "#27BF69"
-      },
-      "punctuation": {
-        "color": "#716186"
-      },
-      "tag": {
-        "background_color": "#f00",
-        "color": "#fff"
-      },
-      "keyword": {
-        "color": "#B4A2DB"
-      }
-      //     "function.method": {
-      //       "color": "#FF9792"
-      //     },
-      //     "constant": {
-      //       "color": "#AC86E1"
-      //     },
-      //     "number": {
-      //       "color": "#FFF38A"
-      //     },
-      //     "string": {
-      //       "color": "#FBC267"
-      //     },
-      //     "function": {
-      //       "color": "#E692C2"
-      //     },
-      //     "tag": {
-      //       "color": "#5EA6ED"
-      //     },
-      // "attribute": {
-      //   "color": "#6CD5FE"
-      // }
-      //     "jsx_element": {
-      //       "color": "#ff0000"
-      //     },
-      //     "punctuation.bracket": {
-      //       "color": "#8C8EBB"
-      //     }
-    }
-  },
-  "ui_font_size": 14,
-  "buffer_font_size": 12,
-  "relative_line_numbers": true,
-  "tab_size": 2,
-  "vim_mode": true,
-  "vim": {
-    "use_system_clipboard": "never"
-  },
-  "assistant": {
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
-    },
-    "version": "2"
-  },
+  "icon_theme": "Catppuccin Frappé",
   "journal": {
     "hour_format": "hour24",
     "path": "~/journal"
   },
-  "scrollbar": {
-    "show": "never"
-  },
-  "tab_bar": {
-    "show": false
-  },
-  "show_whitespaces": "boundary",
-  "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
-  "buffer_font_weight": 100,
-  "buffer_font_family": "Operator Mono Lig",
-  "terminal": {
-    "font_family": "Zed Plex Mono",
-    "line_height": "standard",
-    "button": false
-  },
-  "project_panel": {
-    "dock": "right",
-    "button": false
-  },
-  "notification_panel": {
-    "button": false
+  "languages": {
+    "Ruby": {
+      "formatter": {
+        "external": {
+          "arguments": [
+            "-x"
+          ],
+          "command": "rufo"
+        }
+      }
+    },
+    "Rust": {
+      "inlay_hints": {
+        "enabled": true
+      },
+      "show_edit_predictions": true
+    },
+    "TSX": {
+      "show_edit_predictions": true
+    },
+    "TypeScript": {
+      "show_edit_predictions": true
+    }
   },
   "lsp": {
     "deno": {
@@ -189,16 +109,44 @@
     "rust-analyzer": {
       "initialization_options": {
         "inlayHints": {
-          "maxLength": null,
+          "closureReturnTypeHints": {
+            "enable": "always"
+          },
           "lifetimeElisionHints": {
             "enable": "skip_trivial",
             "useParameterNames": true
           },
-          "closureReturnTypeHints": {
-            "enable": "always"
-          }
+          "maxLength": null
         }
       }
     }
-  }
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "project_panel": {
+    "button": false,
+    "dock": "right"
+  },
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "show_edit_predictions": false,
+  "show_whitespaces": "boundary",
+  "tab_bar": {
+    "show": false
+  },
+  "tab_size": 2,
+  "terminal": {
+    "button": false,
+    "font_family": "Zed Plex Mono",
+    "line_height": "standard"
+  },
+  "theme": "NSFW",
+  "ui_font_size": 14,
+  "vim": {
+    "use_system_clipboard": "never"
+  },
+  "vim_mode": true
 }
