@@ -6,62 +6,142 @@
     },
     "version": "2"
   },
-  "buffer_font_fallbacks": [
-    "Symbols Nerd Font Mono"
-  ],
+  "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
   "buffer_font_family": "Zed Plex Mono",
   "buffer_font_size": 12,
   "buffer_font_weight": 100,
   "cursor_blink": false,
+  "extend_comment_on_newline": false,
+  "unnecessary_code_fade": 0.6,
   "experimental.theme_overrides": {
-    "background": "#26242E",
-    "editor.active_line.background": "#1D1B25",
-    "editor.active_line_number": "#8E89A6",
-    "editor.background": "#26242E",
-    "editor.foreground": "#E0DDE4",
-    "editor.gutter.background": "#201E28",
-    "editor.indent_guide": "#534B74",
-    "editor.indent_guide_active": "#E0DDE4",
-    "editor.line_number": "#534B74",
-    "invisible": "#534B74",
+    // Backgrounds
+    "background": "#121217",
+    "element.active": "#0f0",
+    "element.background": "#32344D",
+    "element.selected": "#1F202A",
+    "element.hover": "#262630",
+    "editor.background": "#191A23",
+    "panel.background": "#15161E",
+    "terminal.background": "#15161E",
+    "status_bar.background": "#15161E",
+    "title_bar.background": "#121217",
+    "elevated_surface.background": "#1F202A",
+    "editor.gutter.background": "#191A23",
+    "toolbar.background": "#15161E",
+    "tab_bar.background": "#191A23",
+    "tab.active_background": "#15161E",
+    "editor.active_line.background": "#121217",
+    "predictive.border": "#f00",
+    "predictive.background": "#f00",
+    "hint.border": "#0f0",
+    "info.border": "#33488A",
+    "link_text.hover": "#0f0",
+    "ghost_element.hover": "#262630",
+    "ghost_element.active": "#3B4091",
+    "ghost_element.background": "#00000000",
+    "ghost_element.selected": "#3B4091",
+    // Icons
+    "icon": "#f00",
+    "icon.accent": "#f00",
+    "icon.muted": "#f00",
+    "icon.disabled": "#f00",
+    "icon.placeholder": "#f00",
+    // Text
+    "text.accent": "#6369CE",
+    "text.muted": "#444455",
+    "editor.line_number": "#3E405B",
+    "editor.active_line_number": "#6B70C6",
+    "error": "#FF6769",
+    "hint": "#303258",
+    // Borders & lines
+    "border": "#262731",
+    "border.variant": "#232430",
+    "editor.indent_guide": "#1D1E25",
+    "editor.indent_guide_active": "#262731",
     "players": [
       {
-        "cursor": "#FFC260",
-        "selection": "#FFC26032"
+        "cursor": "#6369CE",
+        "selection": "#6369CE4D"
       }
     ],
     "syntax": {
-      "attribute": {
-        "color": "#FF577F"
-      },
       "comment": {
-        "color": "#665783"
+        "font_style": "italic",
+        "color": "#454763"
       },
-      "hint": {
-        "color": "#473D5A"
-      },
-      "keyword": {
-        "color": "#B4A2DB"
-      },
-      "property": {
-        "color": "#96ECBC"
+      "title": {
+        "font_style": "italic",
+        "color": "#A2A6E1"
       },
       "string": {
-        "color": "#27BF69"
+        "color": "#FFC44F"
+      },
+      "string.special": {
+        // Ruby symbols
+        "color": "#f00"
+      },
+      "function.method": {
+        "color": "#B5B8E8"
+      },
+      "function.special.definition": {
+        "color": "#f00"
+      },
+      "punctuation.delimiter": {
+        "color": "#8C82B8"
+      },
+      "punctuation.bracket": {
+        "color": "#8C82B8"
+      },
+      "punctuation.list_marker": {
+        "color": "#f00"
+      },
+      "punctuation.special": {
+        "color": "#FF814F"
+      },
+      "punctuation": {
+        "color": "#f00"
+      },
+      "keyword": {
+        "color": "#FF77AE"
+      },
+      "property": {
+        "color": "#7A7FD5"
+      },
+      "tag": {
+        "color": "#7A7FD5"
+      },
+      "attribute": {
+        "color": "#A2A6E1"
+      },
+      "boolean": {
+        "color": "#FF77AE"
+      },
+      "number": {
+        "color": "#F5FF69"
+      },
+      "type.builtin": {
+        "color": "#FFE969"
       },
       "type": {
-        "color": "#FFC260"
+        "color": "#7A7FD5"
       }
-    }
+    },
+    // WTFs
+    "unreachable": "#f00",
+    "surface.background": "#f00",
+    "border.focused": "#0f0",
+    "border.selected": "#f00",
+    "pane.focused_border": "#0f0",
+    "panel.focused_border": "#6369CE",
+    "border.disabled": "#f00",
+    "editor.hover_line_number": "#f00"
   },
   "features": {
     "edit_prediction_provider": "zed"
   },
   "file_types": {
-    "Shell Script": [
-      "env",
-      "envrc"
-    ]
+    "Shell Script": ["env", "envrc"],
+    "TOML": ["**/ghostty/config"]
   },
   "git": {
     "git_gutter": "tracked_files",
@@ -78,9 +158,7 @@
     "Ruby": {
       "formatter": {
         "external": {
-          "arguments": [
-            "-x"
-          ],
+          "arguments": ["-x"],
           "command": "rufo"
         }
       }
@@ -141,7 +219,9 @@
   "terminal": {
     "button": false,
     "font_family": "Zed Plex Mono",
-    "line_height": "standard"
+    "line_height": {
+      "custom": 1
+    }
   },
   "theme": "NSFW",
   "ui_font_size": 14,

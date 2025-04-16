@@ -1,0 +1,153 @@
+// documentation: https://zed.dev/docs/configuring-zed
+{
+  "icon_theme": "Catppuccin Frappé",
+  "languages": {
+    "TypeScript": {
+      "show_edit_predictions": true
+    },
+    "Rust": {
+      "inlay_hints": {
+        "enabled": true
+      }
+    },
+    "Ruby": {
+      "formatter": {
+        "external": {
+          "command": "rufo",
+          "arguments": ["-x"]
+        }
+      }
+    }
+  },
+  "features": {
+    "inline_completion_provider": "zed"
+  },
+  "show_inline_completions": false,
+  "file_types": {
+    "Shell Script": ["env", "envrc"]
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+  "cursor_blink": false,
+  "theme": "Rosé Pine Moon",
+  "experimental.theme_overrides": {
+    "background": "#1F2034",
+    "editor.background": "#1F2034",
+    "editor.gutter.background": "#1D1D30",
+    "editor.line_number": "#6E6E94",
+    "editor.active_line_number": "#CBCBE5",
+    "editor.active_line.background": "#191A2C",
+    "editor.foreground": "#D6D7E8",
+    "status_bar.background": "#2C2C40", // Bottom bar of window
+    "title_bar.background": "#2C2C40", // Top bar of window
+    "toolbar.background": "#242438", // Breadcrumbs bar
+    "elevated_surface.background": "#242438",
+    "border": "#36364C", // All the borders
+    "search.match_background": "#6E6E94", // Matched text during search
+    "element.background": "#2C2C40", // "You" in assistant, etc.
+    "element.active": "#FF0000",
+    "element.selected": "#36364C", // Selected item in file tree
+    "element.hover": "#36364C",
+    "syntax": {
+      "property": {
+        "color": "#80E0AA"
+      },
+      "function.method": {
+        "color": "#FF9792"
+      },
+      "constant": {
+        "color": "#AC86E1"
+      },
+      "number": {
+        "color": "#FFF38A"
+      },
+      "string": {
+        "color": "#FBC267"
+      },
+      "keyword": {
+        "color": "#8B9CE3"
+      },
+      "function": {
+        "color": "#E692C2"
+      },
+      "tag": {
+        "color": "#5EA6ED"
+      },
+      "attribute": {
+        "color": "#6CD5FE"
+      },
+      "jsx_element": {
+        "color": "#ff0000"
+      },
+      "punctuation.bracket": {
+        "color": "#8C8EBB"
+      }
+    }
+  },
+  "ui_font_size": 14,
+  "buffer_font_size": 12,
+  "relative_line_numbers": true,
+  "tab_size": 2,
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "never"
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2"
+  },
+  "journal": {
+    "hour_format": "hour24",
+    "path": "~/journal"
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  "tab_bar": {
+    "show": false
+  },
+  "show_whitespaces": "boundary",
+  "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
+  "terminal": {
+    "font_family": "Zed Plex Mono",
+    "line_height": "standard",
+    "button": false
+  },
+  "project_panel": {
+    "dock": "right",
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "lsp": {
+    "deno": {
+      "settings": {
+        "deno": {
+          "enable": false
+        }
+      }
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "enable": "skip_trivial",
+            "useParameterNames": true
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
+        }
+      }
+    }
+  }
+}

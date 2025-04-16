@@ -1,0 +1,12 @@
+{
+  "$schema": "https://zed.dev/schema/themes/v0.2.0.json",
+  "author": "Rob Falken",
+  "name": "NSFW",
+  "themes": [
+    {
+      "name": "NSFW",
+      "appearance": "dark",
+      "style": {}
+    }
+  ]
+}

@@ -1,16 +1,8 @@
 [
   {
-    "context": "Workspace",
+    "context": "Editor && inline_completion && !showing_completions",
     "bindings": {
-      "ctrl-p": "file_finder::Toggle",
-      "ctrl-shift-p": "command_palette::Toggle",
-      "ctrl-shift-o": "projects::OpenRecent"
-    }
-  },
-  {
-    "context": "Editor && edit_prediction && !showing_completions",
-    "bindings": {
-      "ctrl-i": "editor::AcceptEditPrediction"
+      "ctrl-i": "editor::AcceptInlineCompletion"
     }
   },
   {
@@ -35,6 +27,7 @@
       "g i": "editor::GoToImplementation",
       "space r t": "task::Spawn",
       "space r l": "task::Rerun",
+      "space a c": "assistant::NewContext",
       "space c n": "workspace::ClearAllNotifications",
       "space c s": "buffer_search::Dismiss",
       "space l g": ["task::Spawn", { "task_name": "LazyGit" }],
@@ -74,10 +67,10 @@
   {
     "context": "!VimWaiting", // In "Terminal Panel" I want to be able to `ctrl-w` without latency.
     "bindings": {
-      "ctrl-shift-h": "workspace::ActivatePaneLeft",
-      "ctrl-shift-l": "workspace::ActivatePaneRight",
-      "ctrl-shift-j": "workspace::ActivatePaneDown",
-      "ctrl-shift-k": "workspace::ActivatePaneUp"
+      "ctrl-shift-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-shift-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-shift-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-shift-k": ["workspace::ActivatePaneInDirection", "Up"]
     }
   },
 
@@ -98,12 +91,6 @@
     "bindings": {
       "shift-j": "editor::MoveLineDown",
       "shift-k": "editor::MoveLineUp"
-    }
-  },
-  {
-    "context": "Diagnostics",
-    "bindings": {
-      "space t w": "diagnostics::ToggleWarnings"
     }
   }
 ]
