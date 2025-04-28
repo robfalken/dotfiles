@@ -35,7 +35,7 @@
     "predictive.background": "#f00",
     "hint.border": "#0f0",
     "info.border": "#33488A",
-    "link_text.hover": "#0f0",
+    "link_text.hover": "#F5FF69",
     "ghost_element.hover": "#262630",
     "ghost_element.active": "#3B4091",
     "ghost_element.background": "#00000000",
@@ -58,6 +58,8 @@
     "border.variant": "#232430",
     "editor.indent_guide": "#1D1E25",
     "editor.indent_guide_active": "#262731",
+    // Terminal
+    "terminal.ansi.bright_black": "#616177",
     "players": [
       {
         "cursor": "#6369CE",
@@ -77,8 +79,7 @@
         "color": "#FFC44F"
       },
       "string.special": {
-        // Ruby symbols
-        "color": "#f00"
+        "color": "#6ACCB4"
       },
       "function.method": {
         "color": "#B5B8E8"
