@@ -33,13 +33,14 @@
     "editor.active_line.background": "#121217",
     "predictive.border": "#f00",
     "predictive.background": "#f00",
+    "predictive": "#473D5A",
     "hint.border": "#0f0",
     "info.border": "#33488A",
     "link_text.hover": "#F5FF69",
     "ghost_element.hover": "#262630",
     "ghost_element.active": "#3B4091",
     "ghost_element.background": "#00000000",
-    "ghost_element.selected": "#3B4091",
+    "ghost_element.selected": "#15161E",
     // Icons
     "icon": "#f00",
     "icon.accent": "#f00",
@@ -50,7 +51,7 @@
     "text.accent": "#6369CE",
     "text.muted": "#444455",
     "editor.line_number": "#3E405B",
-    "editor.active_line_number": "#6B70C6",
+    "editor.active_line_number": "#8E89A6",
     "error": "#FF6769",
     "hint": "#303258",
     // Borders & lines
@@ -116,6 +117,10 @@
       },
       "boolean": {
         "color": "#FF77AE"
+      },
+      "constant": {
+        "color": "#FF945F",
+        "font_style": "italic"
       },
       "number": {
         "color": "#F5FF69"
