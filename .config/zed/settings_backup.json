@@ -1,30 +1,153 @@
-// documentation: https://zed.dev/docs/configuring-zed
 {
-  "icon_theme": "Catppuccin Frappé",
-  "languages": {
-    "TypeScript": {
-      "show_edit_predictions": true
+  "assistant": {
+    "default_model": {
+      "model": "claude-3-7-sonnet-latest",
+      "provider": "zed.dev"
     },
-    "Rust": {
-      "inlay_hints": {
-        "enabled": true
+    "version": "2"
+  },
+  "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
+  "buffer_font_family": "Zed Plex Mono",
+  "buffer_font_size": 12,
+  "buffer_font_weight": 100,
+  "cursor_blink": false,
+  "extend_comment_on_newline": false,
+  "unnecessary_code_fade": 0.6,
+  "experimental.theme_overrides": {
+    // Backgrounds
+    "background": "#121217",
+    "element.active": "#0f0",
+    "element.background": "#32344D",
+    "element.selected": "#1F202A",
+    "element.hover": "#262630",
+    "editor.background": "#191A23",
+    "panel.background": "#15161E",
+    "terminal.background": "#15161E",
+    "status_bar.background": "#15161E",
+    "title_bar.background": "#121217",
+    "elevated_surface.background": "#1F202A",
+    "editor.gutter.background": "#191A23",
+    "toolbar.background": "#15161E",
+    "tab_bar.background": "#191A23",
+    "tab.active_background": "#15161E",
+    "editor.active_line.background": "#121217",
+    "predictive.border": "#f00",
+    "predictive.background": "#f00",
+    "predictive": "#473D5A",
+    "hint.border": "#0f0",
+    "info.border": "#33488A",
+    "link_text.hover": "#F5FF69",
+    "ghost_element.hover": "#262630",
+    "ghost_element.active": "#3B4091",
+    "ghost_element.background": "#00000000",
+    "ghost_element.selected": "#15161E",
+    // Icons
+    "icon": "#f00",
+    "icon.accent": "#f00",
+    "icon.muted": "#f00",
+    "icon.disabled": "#f00",
+    "icon.placeholder": "#f00",
+    // Text
+    "text.accent": "#6369CE",
+    "text.muted": "#444455",
+    "editor.line_number": "#3E405B",
+    "editor.active_line_number": "#8E89A6",
+    "error": "#FF6769",
+    "hint": "#303258",
+    // Borders & lines
+    "border": "#262731",
+    "border.variant": "#232430",
+    "editor.indent_guide": "#1D1E25",
+    "editor.indent_guide_active": "#262731",
+    // Terminal
+    "terminal.ansi.bright_black": "#616177",
+    "players": [
+      {
+        "cursor": "#6369CE",
+        "selection": "#6369CE4D"
+      }
+    ],
+    "syntax": {
+      "comment": {
+        "font_style": "italic",
+        "color": "#454763"
+      },
+      "title": {
+        "font_style": "italic",
+        "color": "#A2A6E1"
+      },
+      "string": {
+        "color": "#FFC44F"
+      },
+      "string.special": {
+        "color": "#6ACCB4"
+      },
+      "function.method": {
+        "color": "#B5B8E8"
+      },
+      "function.special.definition": {
+        "color": "#f00"
+      },
+      "punctuation.delimiter": {
+        "color": "#8C82B8"
+      },
+      "punctuation.bracket": {
+        "color": "#8C82B8"
+      },
+      "punctuation.list_marker": {
+        "color": "#f00"
+      },
+      "punctuation.special": {
+        "color": "#FF814F"
+      },
+      "punctuation": {
+        "color": "#f00"
+      },
+      "keyword": {
+        "color": "#FF77AE"
+      },
+      "property": {
+        "color": "#7A7FD5"
+      },
+      "tag": {
+        "color": "#7A7FD5"
+      },
+      "attribute": {
+        "color": "#A2A6E1"
+      },
+      "boolean": {
+        "color": "#FF77AE"
+      },
+      "constant": {
+        "color": "#FF945F",
+        "font_style": "italic"
+      },
+      "number": {
+        "color": "#F5FF69"
+      },
+      "type.builtin": {
+        "color": "#FFE969"
+      },
+      "type": {
+        "color": "#7A7FD5"
       }
     },
-    "Ruby": {
-      "formatter": {
-        "external": {
-          "command": "rufo",
-          "arguments": ["-x"]
-        }
-      }
-    }
+    // WTFs
+    "unreachable": "#f00",
+    "surface.background": "#f00",
+    "border.focused": "#0f0",
+    "border.selected": "#f00",
+    "pane.focused_border": "#0f0",
+    "panel.focused_border": "#6369CE",
+    "border.disabled": "#f00",
+    "editor.hover_line_number": "#f00"
   },
   "features": {
-    "inline_completion_provider": "zed"
+    "edit_prediction_provider": "zed"
   },
-  "show_inline_completions": false,
   "file_types": {
-    "Shell Script": ["env", "envrc"]
+    "Shell Script": ["env", "envrc"],
+    "TOML": ["**/ghostty/config"]
   },
   "git": {
     "git_gutter": "tracked_files",
@@ -32,100 +155,32 @@
       "enabled": true
     }
   },
-  "cursor_blink": false,
-  "theme": "Rosé Pine Moon",
-  "experimental.theme_overrides": {
-    "background": "#1F2034",
-    "editor.background": "#1F2034",
-    "editor.gutter.background": "#1D1D30",
-    "editor.line_number": "#6E6E94",
-    "editor.active_line_number": "#CBCBE5",
-    "editor.active_line.background": "#191A2C",
-    "editor.foreground": "#D6D7E8",
-    "status_bar.background": "#2C2C40", // Bottom bar of window
-    "title_bar.background": "#2C2C40", // Top bar of window
-    "toolbar.background": "#242438", // Breadcrumbs bar
-    "elevated_surface.background": "#242438",
-    "border": "#36364C", // All the borders
-    "search.match_background": "#6E6E94", // Matched text during search
-    "element.background": "#2C2C40", // "You" in assistant, etc.
-    "element.active": "#FF0000",
-    "element.selected": "#36364C", // Selected item in file tree
-    "element.hover": "#36364C",
-    "syntax": {
-      "property": {
-        "color": "#80E0AA"
-      },
-      "function.method": {
-        "color": "#FF9792"
-      },
-      "constant": {
-        "color": "#AC86E1"
-      },
-      "number": {
-        "color": "#FFF38A"
-      },
-      "string": {
-        "color": "#FBC267"
-      },
-      "keyword": {
-        "color": "#8B9CE3"
-      },
-      "function": {
-        "color": "#E692C2"
-      },
-      "tag": {
-        "color": "#5EA6ED"
-      },
-      "attribute": {
-        "color": "#6CD5FE"
-      },
-      "jsx_element": {
-        "color": "#ff0000"
-      },
-      "punctuation.bracket": {
-        "color": "#8C8EBB"
-      }
-    }
-  },
-  "ui_font_size": 14,
-  "buffer_font_size": 12,
-  "relative_line_numbers": true,
-  "tab_size": 2,
-  "vim_mode": true,
-  "vim": {
-    "use_system_clipboard": "never"
-  },
-  "assistant": {
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
-    },
-    "version": "2"
-  },
+  "icon_theme": "Catppuccin Frappé",
   "journal": {
     "hour_format": "hour24",
     "path": "~/journal"
   },
-  "scrollbar": {
-    "show": "never"
-  },
-  "tab_bar": {
-    "show": false
-  },
-  "show_whitespaces": "boundary",
-  "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
-  "terminal": {
-    "font_family": "Zed Plex Mono",
-    "line_height": "standard",
-    "button": false
-  },
-  "project_panel": {
-    "dock": "right",
-    "button": false
-  },
-  "notification_panel": {
-    "button": false
+  "languages": {
+    "Ruby": {
+      "formatter": {
+        "external": {
+          "arguments": ["-x"],
+          "command": "rufo"
+        }
+      }
+    },
+    "Rust": {
+      "inlay_hints": {
+        "enabled": true
+      },
+      "show_edit_predictions": true
+    },
+    "TSX": {
+      "show_edit_predictions": true
+    },
+    "TypeScript": {
+      "show_edit_predictions": true
+    }
   },
   "lsp": {
     "deno": {
@@ -138,16 +193,46 @@
     "rust-analyzer": {
       "initialization_options": {
         "inlayHints": {
-          "maxLength": null,
+          "closureReturnTypeHints": {
+            "enable": "always"
+          },
           "lifetimeElisionHints": {
             "enable": "skip_trivial",
             "useParameterNames": true
           },
-          "closureReturnTypeHints": {
-            "enable": "always"
-          }
+          "maxLength": null
         }
       }
     }
-  }
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "project_panel": {
+    "button": false,
+    "dock": "right"
+  },
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "show_edit_predictions": false,
+  "show_whitespaces": "boundary",
+  "tab_bar": {
+    "show": false
+  },
+  "tab_size": 2,
+  "terminal": {
+    "button": false,
+    "font_family": "Zed Plex Mono",
+    "line_height": {
+      "custom": 1
+    }
+  },
+  "theme": "NSFW",
+  "ui_font_size": 14,
+  "vim": {
+    "use_system_clipboard": "never"
+  },
+  "vim_mode": true
 }
