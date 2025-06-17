@@ -1,13 +1,27 @@
 {
   "agent": {
+    "button": false,
     "always_allow_tool_actions": true,
     "default_profile": "ask",
     "default_model": {
-      "model": "gpt-4o",
+      "model": "gpt-4.1",
       "provider": "copilot_chat"
     },
     "version": "2"
   },
+  "git_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "search": {
+    "button": false
+  },
+  "scroll_beyond_last_line": "off",
   "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
   "buffer_font_family": "Zed Plex Mono",
   "buffer_font_size": 12,
@@ -200,21 +214,21 @@
           "enable": false
         }
       }
-    },
-    "rust-analyzer": {
-      "initialization_options": {
-        "inlayHints": {
-          "closureReturnTypeHints": {
-            "enable": "always"
-          },
-          "lifetimeElisionHints": {
-            "enable": "skip_trivial",
-            "useParameterNames": true
-          },
-          "maxLength": null
-        }
-      }
     }
+    // "rust-analyzer": {
+    // "initialization_options": {
+    //   "inlayHints": {
+    //     "closureReturnTypeHints": {
+    //       "enable": "always"
+    //     },
+    //     "lifetimeElisionHints": {
+    //       "enable": "skip_trivial",
+    //       "useParameterNames": true
+    //     },
+    //     "maxLength": null
+    //   }
+    // }
+    // }
   },
   "notification_panel": {
     "button": false
