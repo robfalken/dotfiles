@@ -1,0 +1,13 @@
+# cmd+shift+comma reloads config
+
+font-family = "Zed Plex Mono"
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+keybind = ctrl+\=new_split:right
+keybind = ctrl+shift+\=new_split:down
+
+background = #1E1F2A
+
+keybind = global:cmd+ctrl+alt+shift+q=toggle_quick_terminal
