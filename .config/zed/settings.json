@@ -1,27 +1,13 @@
 {
   "agent": {
-    "button": false,
     "always_allow_tool_actions": true,
     "default_profile": "ask",
     "default_model": {
-      "model": "gpt-4.1",
-      "provider": "copilot_chat"
+      "model": "claude-3-7-sonnet-thinking",
+      "provider": "zed.dev"
     },
     "version": "2"
   },
-  "git_panel": {
-    "button": false
-  },
-  "outline_panel": {
-    "button": false
-  },
-  "collaboration_panel": {
-    "button": false
-  },
-  "search": {
-    "button": false
-  },
-  "scroll_beyond_last_line": "off",
   "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
   "buffer_font_family": "Zed Plex Mono",
   "buffer_font_size": 12,
@@ -58,7 +44,7 @@
     "ghost_element.hover": "#262630",
     "ghost_element.active": "#3B4091",
     "ghost_element.background": "#00000000",
-    "ghost_element.selected": "#15161E",
+    "ghost_element.selected": "#16182B",
     // Icons
     "icon": "#A2A6E1",
     "icon.accent": "#f00",
@@ -74,7 +60,7 @@
     "hint": "#47496B",
     "hint.background": "#3C5595",
     "warning": "#FFC44F",
-    "warning.background": "#E88000",
+    "warning.background": "#231A0C",
     // Borders & lines
     "border": "#262731",
     "border.variant": "#232430",
@@ -214,21 +200,21 @@
           "enable": false
         }
       }
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "inlayHints": {
+          "closureReturnTypeHints": {
+            "enable": "always"
+          },
+          "lifetimeElisionHints": {
+            "enable": "skip_trivial",
+            "useParameterNames": true
+          },
+          "maxLength": null
+        }
+      }
     }
-    // "rust-analyzer": {
-    // "initialization_options": {
-    //   "inlayHints": {
-    //     "closureReturnTypeHints": {
-    //       "enable": "always"
-    //     },
-    //     "lifetimeElisionHints": {
-    //       "enable": "skip_trivial",
-    //       "useParameterNames": true
-    //     },
-    //     "maxLength": null
-    //   }
-    // }
-    // }
   },
   "notification_panel": {
     "button": false

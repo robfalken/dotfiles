@@ -5,7 +5,12 @@
   {
     "label": "Codegen",
     "command": "op run",
-    "args": ["--no-masking", "--env-file=../../.env", "--", "npm run codegen"],
+    "args": [
+      "--no-masking",
+      "--env-file=../../.env.staging",
+      "--",
+      "npm run codegen"
+    ],
     "env": { "ENV": "staging" },
     "hide": "on_success"
   },
