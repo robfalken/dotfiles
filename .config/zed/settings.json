@@ -4,10 +4,9 @@
     "always_allow_tool_actions": true,
     "default_profile": "ask",
     "default_model": {
-      "model": "gpt-4.1",
-      "provider": "copilot_chat"
-    },
-    "version": "2"
+      "model": "claude-sonnet-4",
+      "provider": "zed.dev"
+    }
   },
   "git_panel": {
     "button": false
@@ -29,7 +28,7 @@
   "cursor_blink": false,
   "extend_comment_on_newline": false,
   "unnecessary_code_fade": 0.6,
-  "experimental.theme_overrides": {
+  "_experimental.theme_overrides": {
     // Backgrounds
     "background": "#171821",
     "element.active": "#0f0",
@@ -254,7 +253,7 @@
       "custom": 1
     }
   },
-  "theme": "NSFW",
+  "theme": "Rosé Pine Moon",
   "ui_font_size": 14,
   "vim": {
     "use_system_clipboard": "never"

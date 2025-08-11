@@ -1,11 +1,27 @@
 {
-  "assistant": {
+  "agent": {
+    "button": false,
+    "always_allow_tool_actions": true,
+    "default_profile": "write",
     "default_model": {
-      "model": "claude-3-7-sonnet-latest",
-      "provider": "zed.dev"
+      "model": "gpt-4.1",
+      "provider": "copilot_chat"
     },
     "version": "2"
   },
+  "git_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "search": {
+    "button": false
+  },
+  "scroll_beyond_last_line": "off",
   "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
   "buffer_font_family": "Zed Plex Mono",
   "buffer_font_size": 12,
@@ -15,34 +31,36 @@
   "unnecessary_code_fade": 0.6,
   "experimental.theme_overrides": {
     // Backgrounds
-    "background": "#121217",
+    "background": "#171821",
     "element.active": "#0f0",
     "element.background": "#32344D",
     "element.selected": "#1F202A",
     "element.hover": "#262630",
-    "editor.background": "#191A23",
+    "toolbar.background": "#171821",
+    "editor.background": "#1E1F2A",
+    "editor.gutter.background": "#1C1D27",
     "panel.background": "#15161E",
-    "terminal.background": "#15161E",
-    "status_bar.background": "#15161E",
-    "title_bar.background": "#121217",
+    "terminal.background": "#1E1F2A",
+    "status_bar.background": "#13141B",
+    "title_bar.background": "#13141B",
     "elevated_surface.background": "#1F202A",
-    "editor.gutter.background": "#191A23",
-    "toolbar.background": "#15161E",
     "tab_bar.background": "#191A23",
-    "tab.active_background": "#15161E",
-    "editor.active_line.background": "#121217",
+    "tab.inactive_background": "#191A23",
+    "tab.active_background": "#1E1F2A",
+    "editor.active_line.background": "#1A1A24",
     "predictive.border": "#f00",
     "predictive.background": "#f00",
     "predictive": "#473D5A",
-    "hint.border": "#0f0",
     "info.border": "#33488A",
+    "error.border": "#0f0",
     "link_text.hover": "#F5FF69",
+    "editor.document_highlight.bracket_background": "#322E46",
     "ghost_element.hover": "#262630",
     "ghost_element.active": "#3B4091",
     "ghost_element.background": "#00000000",
     "ghost_element.selected": "#15161E",
     // Icons
-    "icon": "#f00",
+    "icon": "#A2A6E1",
     "icon.accent": "#f00",
     "icon.muted": "#f00",
     "icon.disabled": "#f00",
@@ -53,7 +71,10 @@
     "editor.line_number": "#3E405B",
     "editor.active_line_number": "#8E89A6",
     "error": "#FF6769",
-    "hint": "#303258",
+    "hint": "#47496B",
+    "hint.background": "#3C5595",
+    "warning": "#FFC44F",
+    "warning.background": "#E88000",
     // Borders & lines
     "border": "#262731",
     "border.variant": "#232430",
@@ -95,7 +116,7 @@
         "color": "#8C82B8"
       },
       "punctuation.list_marker": {
-        "color": "#f00"
+        "color": "#FF77AE"
       },
       "punctuation.special": {
         "color": "#FF814F"
@@ -107,6 +128,9 @@
         "color": "#FF77AE"
       },
       "property": {
+        "color": "#B5B8E8"
+      },
+      "property.json_key": {
         "color": "#7A7FD5"
       },
       "tag": {
@@ -134,7 +158,7 @@
     },
     // WTFs
     "unreachable": "#f00",
-    "surface.background": "#f00",
+    "surface.background": "#1E1F2A",
     "border.focused": "#0f0",
     "border.selected": "#f00",
     "pane.focused_border": "#0f0",
@@ -147,7 +171,8 @@
   },
   "file_types": {
     "Shell Script": ["env", "envrc"],
-    "TOML": ["**/ghostty/config"]
+    "TOML": ["**/ghostty/config"],
+    "tmux": ["**/.tmux.conf"]
   },
   "git": {
     "git_gutter": "tracked_files",
@@ -189,21 +214,21 @@
           "enable": false
         }
       }
-    },
-    "rust-analyzer": {
-      "initialization_options": {
-        "inlayHints": {
-          "closureReturnTypeHints": {
-            "enable": "always"
-          },
-          "lifetimeElisionHints": {
-            "enable": "skip_trivial",
-            "useParameterNames": true
-          },
-          "maxLength": null
-        }
-      }
     }
+    // "rust-analyzer": {
+    // "initialization_options": {
+    //   "inlayHints": {
+    //     "closureReturnTypeHints": {
+    //       "enable": "always"
+    //     },
+    //     "lifetimeElisionHints": {
+    //       "enable": "skip_trivial",
+    //       "useParameterNames": true
+    //     },
+    //     "maxLength": null
+    //   }
+    // }
+    // }
   },
   "notification_panel": {
     "button": false
