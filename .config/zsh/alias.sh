@@ -15,4 +15,3 @@ alias glg="git log --graph --pretty=tformat:'%Cred%h%Creset -%C(yellow)%d%Creset
 alias gcamend="git commit --amend --reuse-message=HEAD"
 alias reload-zshrc="source ~/.zshrc"
 alias ".."="cd .."
-alias opstaging="op run --no-masking --env-file .env.staging --"
