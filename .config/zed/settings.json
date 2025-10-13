@@ -1,8 +1,17 @@
 {
+  "context_servers": {
+    "linear": {
+      "source": "custom",
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
+      "env": {}
+    }
+  },
   "agent": {
     "button": false,
     "always_allow_tool_actions": true,
-    "default_profile": "ask",
+    "default_profile": "minimal",
     "default_model": {
       "model": "claude-sonnet-4",
       "provider": "zed.dev"
