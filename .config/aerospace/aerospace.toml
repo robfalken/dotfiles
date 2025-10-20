@@ -128,8 +128,11 @@ alt-shift-cmd-ctrl-7 = 'workspace 7'
 alt-shift-cmd-ctrl-8 = 'workspace 8'
 alt-shift-cmd-ctrl-9 = 'workspace 9'
 
-alt-shift-cmd-ctrl-z = 'fullscreen'
-alt-shift-cmd-ctrl-f = 'layout floating tiling'
+# TODO: Find other binds for these:
+# alt-shift-cmd-ctrl-z = 'fullscreen'
+# alt-shift-cmd-ctrl-f = 'layout floating tiling'
+
+alt-shift-cmd-ctrl-z = 'exec-and-forget /bin/zsh -c "focus_window dev.zed.Zed"'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 ctrl-shift-0 = 'move-node-to-workspace 0 --focus-follows-window'
