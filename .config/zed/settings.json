@@ -11,7 +11,7 @@
   "agent": {
     "button": false,
     "always_allow_tool_actions": true,
-    "default_profile": "minimal",
+    "default_profile": "write",
     "default_model": {
       "model": "claude-sonnet-4",
       "provider": "zed.dev"
