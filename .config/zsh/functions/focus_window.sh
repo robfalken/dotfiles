@@ -11,7 +11,6 @@ focus_window() {
 
     local result
     result=$(aerospace list-windows --all --format "%{window-id} %{app-bundle-id}" | grep "$app_bundle_id")
-    echo "$result"
 
     if [[ -n "$result" ]]; then
         echo "$result" |  awk '{print "aerospace focus --window-id " $1}' | sh
