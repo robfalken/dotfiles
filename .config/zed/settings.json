@@ -8,6 +8,15 @@
       "env": {}
     }
   },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy"
+        }
+      }
+    }
+  },
   "agent": {
     "button": false,
     "always_allow_tool_actions": true,
@@ -17,7 +26,12 @@
       "provider": "zed.dev"
     }
   },
-  "file_scan_exclusions": ["**/target", "**/.git", "**/node_modules"],
+  "file_scan_exclusions": [
+    "**/target",
+    "**/.git",
+    "**/node_modules",
+    "**/.DS_Store"
+  ],
   "git_panel": {
     "button": false
   },
