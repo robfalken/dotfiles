@@ -18,13 +18,17 @@
     }
   },
   "agent": {
-    "button": false,
-    "always_allow_tool_actions": true,
-    "default_profile": "write",
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1"
+    },
     "default_model": {
-      "model": "claude-sonnet-4",
-      "provider": "zed.dev"
-    }
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    },
+    "always_allow_tool_actions": true,
+    "default_profile": "ask",
+    "model_parameters": []
   },
   "file_scan_exclusions": [
     "**/target",
@@ -100,7 +104,7 @@
       "show_edit_predictions": true
     }
   },
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "scrollbar": {
     "show": "never"
   },

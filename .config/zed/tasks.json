@@ -3,10 +3,8 @@
 // Example:
 [
   {
-    "label": "Codegen",
-    "command": "op run",
-    "args": ["--no-masking", "--env-file=../../.env", "--", "npm run codegen"],
-    "env": { "ENV": "staging" },
+    "label": "View Github repo",
+    "command": "gh repo view --web",
     "hide": "on_success"
   },
   {
