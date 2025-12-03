@@ -3,6 +3,11 @@
 // Example:
 [
   {
+    "label": "CircleCI: Validate config",
+    "command": "circleci",
+    "args": ["config", "validate", "$ZED_RELATIVE_FILE"]
+  },
+  {
     "label": "View Github repo",
     "command": "gh repo view --web",
     "hide": "on_success"

@@ -1,7 +1,6 @@
 {
   "context_servers": {
     "linear": {
-      "source": "custom",
       "enabled": true,
       "command": "npx",
       "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
