@@ -1,0 +1,113 @@
+{
+  "context_servers": {
+    "linear": {
+      "enabled": true,
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
+      "env": {}
+    }
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy"
+        }
+      }
+    }
+  },
+  "agent": {
+    "always_allow_tool_actions": true,
+    "default_profile": "write",
+    "model_parameters": []
+  },
+  "file_scan_exclusions": [
+    "**/target",
+    "**/.git",
+    "**/node_modules",
+    "**/.DS_Store"
+  ],
+  "scroll_beyond_last_line": "off",
+  "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
+  "buffer_font_family": ".ZedMono",
+  "buffer_font_size": 12,
+  "buffer_font_weight": 100,
+  "cursor_blink": false,
+  "extend_comment_on_newline": false,
+  "unnecessary_code_fade": 0.6,
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "file_types": {
+    "Shell Script": ["env", "envrc", "Brewfile"],
+    "TOML": ["**/ghostty/config"],
+    "tmux": ["**/.tmux.conf"]
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+  "icon_theme": "Catppuccin Latte",
+  "journal": {
+    "hour_format": "hour24",
+    "path": "~/journal"
+  },
+  "languages": {
+    "Rust": {
+      "inlay_hints": {
+        "enabled": true
+      },
+      "show_edit_predictions": true
+    },
+    "TSX": {
+      "show_edit_predictions": true
+    },
+    "TypeScript": {
+      "show_edit_predictions": true
+    }
+  },
+  "relative_line_numbers": "enabled",
+  "show_edit_predictions": false,
+  "show_whitespaces": "boundary",
+  "tab_bar": {
+    "show": false
+  },
+  "tab_size": 2,
+  "terminal": {
+    "button": false,
+    "font_family": ".ZedMono",
+    "line_height": {
+      "custom": 1
+    }
+  },
+  "theme": "Nord Dark",
+  "ui_font_size": 14,
+  "vim": {
+    "use_system_clipboard": "never"
+  },
+  "vim_mode": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "git_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "search": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "project_panel": {
+    "button": false,
+    "dock": "right"
+  }
+}
