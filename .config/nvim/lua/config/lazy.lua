@@ -18,11 +18,21 @@ vim.opt.rtp:prepend(lazypath)
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
+vim.opt.number = true
+vim.opt.relativenumber = true
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 vim.keymap.set("i", "kj", "<Esc>", { desc = "Escape to Normal mode", remap = true })
 vim.keymap.set("n", ";", ":", { desc = "Cmd (alias for :)", remap = true })
+
+-- Filetype detection for extensions not set by default (e.g. .tsx → typescriptreact)
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.tsx",
+  callback = function()
+    vim.bo.filetype = "typescriptreact"
+  end,
+})
 
 -- Setup lazy.nvim
 require("lazy").setup({
