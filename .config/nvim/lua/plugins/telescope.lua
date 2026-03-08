@@ -35,5 +35,6 @@ return {
     vim.keymap.set("n", "<leader>\\", "<cmd>Telescope file_browser hidden=true<cr>", {})
     vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files hidden=true<cr>", {})
     vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>", {})
+    vim.keymap.set("n", "<leader>ss", "<cmd>Telescope treesitter<cr>", { desc = "Search symbols in current file" })
   end,
 }

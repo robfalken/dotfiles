@@ -2,6 +2,14 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
+  cmd = {
+    "TSInstall",
+    "TSInstallFromGrammar",
+    "TSUpdate",
+    "TSUninstall",
+    "TSBufEnable",
+    "TSBufDisable",
+  },
   config = function()
     local languages = {
       "typescript",
@@ -10,8 +18,8 @@ return {
       "html",
       "css",
       "json",
-      "jsonc",
       "lua",
+      "rust",
     }
 
     -- Register tsx parser for typescriptreact filetype *before* setup so it's
@@ -39,19 +47,23 @@ return {
 
     -- Force treesitter highlight on for buffers that can miss initial attach.
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "typescriptreact", "lua" },
+      pattern = { "typescriptreact", "lua", "rust" },
       callback = function()
+        if vim.bo.filetype == "rust" and not vim.uv.fs_stat(vim.fn.stdpath("data") .. "/site/parser/rust.so") then
+          pcall(vim.cmd, "TSInstall rust")
+        end
+
         vim.schedule(function()
-          pcall(vim.treesitter.start)
+          pcall(vim.treesitter.start, 0)
           pcall(vim.cmd, "TSBufEnable highlight")
         end)
       end,
     })
 
     -- If the buffer that triggered loading matches one of these, enable now.
-    if vim.tbl_contains({ "typescriptreact", "lua" }, vim.bo.filetype) then
+    if vim.tbl_contains({ "typescriptreact", "lua", "rust" }, vim.bo.filetype) then
       vim.schedule(function()
-        pcall(vim.treesitter.start)
+        pcall(vim.treesitter.start, 0)
         pcall(vim.cmd, "TSBufEnable highlight")
       end)
     end
