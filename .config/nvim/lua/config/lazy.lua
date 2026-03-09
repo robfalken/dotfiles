@@ -26,11 +26,11 @@ vim.g.maplocalleader = "\\"
 vim.keymap.set("i", "kj", "<Esc>", { desc = "Escape to Normal mode", remap = true })
 vim.keymap.set("n", ";", ":", { desc = "Cmd (alias for :)", remap = true })
 
--- Filetype detection for extensions not set by default (e.g. .tsx → typescriptreact)
-vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = "*.tsx",
-  callback = function()
-    vim.bo.filetype = "typescriptreact"
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  callback = function(ev)
+    if vim.bo[ev.buf].filetype == "" then
+      vim.cmd("filetype detect")
+    end
   end,
 })
 
