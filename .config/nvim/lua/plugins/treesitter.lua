@@ -14,6 +14,7 @@ return {
       "rust",
       "ron",
       "toml",
+      "astro",
     }
 
     vim.treesitter.language.register("tsx", "typescriptreact")

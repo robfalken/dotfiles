@@ -72,6 +72,6 @@ return {
       },
     })
 
-    vim.lsp.enable({ "ts_ls", "eslint", "html", "cssls", "jsonls" })
+    vim.lsp.enable({ "ts_ls", "eslint", "html", "cssls", "jsonls", "astro" })
   end,
 }

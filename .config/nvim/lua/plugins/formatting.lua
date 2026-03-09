@@ -21,6 +21,7 @@ return {
       css = { "prettier" },
       json = { "prettier" },
       jsonc = { "prettier" },
+      astro = { "prettier" },
       rust = { "rustfmt" },
       toml = { "taplo" },
     },

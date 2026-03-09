@@ -16,6 +16,7 @@ return {
         "cssls",
         "jsonls",
         "rust_analyzer",
+        "astro",
       },
       automatic_installation = true,
     },
