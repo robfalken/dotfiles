@@ -8,8 +8,13 @@
     "args": ["config", "validate", "$ZED_RELATIVE_FILE"]
   },
   {
-    "label": "View Github repo",
+    "label": "Github: view repo",
     "command": "gh repo view --web",
+    "hide": "on_success"
+  },
+  {
+    "label": "Github: list PR's",
+    "command": "gh pr list --web",
     "hide": "on_success"
   },
   {

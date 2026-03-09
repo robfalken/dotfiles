@@ -1,58 +1,79 @@
 {
+  "edit_predictions": {
+    "provider": "zed"
+  },
   "context_servers": {
     "linear": {
-      "enabled": true,
       "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.linear.app/sse"],
-      "env": {}
-    }
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"],
+      "env": {},
+    },
   },
   "lsp": {
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    },
     "rust-analyzer": {
       "initialization_options": {
         "check": {
-          "command": "clippy"
-        }
-      }
-    }
+          "command": "clippy",
+        },
+      },
+    },
   },
   "agent": {
+    "tool_permissions": {
+      "default": "allow"
+    },
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "model": "gpt-4.1",
     },
     "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
       "provider": "zed.dev",
-      "model": "claude-sonnet-4"
+      "model": "claude-sonnet-4-6",
     },
-    "always_allow_tool_actions": true,
     "default_profile": "write",
-    "model_parameters": []
+    "model_parameters": [],
   },
   "file_scan_exclusions": [
     "**/target",
     "**/.git",
     "**/node_modules",
-    "**/.DS_Store"
+    "**/.DS_Store",
   ],
   "git_panel": {
-    "button": false
+    "button": false,
   },
   "outline_panel": {
-    "button": false
+    "button": false,
   },
   "collaboration_panel": {
-    "button": false
+    "button": false,
   },
   "search": {
-    "button": false
+    "button": false,
   },
   "notification_panel": {
-    "button": false
+    "button": false,
   },
   "project_panel": {
     "button": false,
-    "dock": "right"
+    "dock": "right",
   },
   "scroll_beyond_last_line": "off",
   "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
@@ -62,68 +83,65 @@
   "cursor_blink": false,
   "extend_comment_on_newline": false,
   "unnecessary_code_fade": 0.6,
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
   "file_types": {
     "Shell Script": ["env", "envrc"],
     "TOML": ["**/ghostty/config"],
-    "tmux": ["**/.tmux.conf"]
+    "tmux": ["**/.tmux.conf"],
   },
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
-      "enabled": true
-    }
+      "enabled": true,
+    },
   },
   "icon_theme": "Catppuccin Frappé",
   "journal": {
     "hour_format": "hour24",
-    "path": "~/journal"
+    "path": "~/journal",
   },
   "languages": {
     "Ruby": {
       "formatter": {
         "external": {
           "arguments": ["-x"],
-          "command": "rufo"
-        }
-      }
+          "command": "rufo",
+        },
+      },
     },
     "Rust": {
       "inlay_hints": {
-        "enabled": true
+        "enabled": true,
       },
-      "show_edit_predictions": true
+      "show_edit_predictions": true,
     },
     "TSX": {
-      "show_edit_predictions": true
+      "show_edit_predictions": true,
     },
     "TypeScript": {
-      "show_edit_predictions": true
-    }
+      "show_edit_predictions": true,
+    },
   },
   "relative_line_numbers": "enabled",
   "scrollbar": {
-    "show": "never"
+    "show": "never",
   },
   "show_edit_predictions": false,
   "show_whitespaces": "boundary",
   "tab_bar": {
-    "show": false
+    "show": false,
   },
   "tab_size": 2,
   "terminal": {
     "button": false,
     "font_family": ".ZedMono",
     "line_height": {
-      "custom": 1
-    }
+      "custom": 1,
+    },
   },
-  "theme": "Rosé Pine Moon",
+  "theme": "Tokyo Night Storm",
   "ui_font_size": 14,
   "vim": {
-    "use_system_clipboard": "never"
+    "use_system_clipboard": "never",
   },
-  "vim_mode": true
+  "vim_mode": true,
 }

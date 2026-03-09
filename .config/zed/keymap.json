@@ -4,20 +4,20 @@
     "bindings": {
       "ctrl-p": "file_finder::Toggle",
       "ctrl-shift-p": "command_palette::Toggle",
-      "ctrl-shift-o": "projects::OpenRecent"
-    }
+      "ctrl-shift-o": "projects::OpenRecent",
+    },
   },
-  {
-    "context": "Editor && edit_prediction && !showing_completions",
-    "bindings": {
-      "ctrl-i": "editor::AcceptEditPrediction"
-    }
-  },
+  // {
+  //   "context": "Editor && edit_prediction && !showing_completions",
+  //   "bindings": {
+  //     "ctrl-i": "editor::AcceptEditPrediction",
+  //   },
+  // },
   {
     "context": "ProjectPanel",
     "bindings": {
-      "ctrl-c": "project_panel::CollapseAllEntries"
-    }
+      "ctrl-c": "project_panel::CollapseAllEntries",
+    },
   },
   {
     "context": "Editor",
@@ -26,8 +26,8 @@
       "ctrl-\\": "pane::SplitRight",
       "ctrl-c a": "editor::ToggleCodeActions",
       "ctrl-c r": "editor::Rename",
-      "ctrl-space ctrl-space": "pane::AlternateFile"
-    }
+      "ctrl-space ctrl-space": "pane::AlternateFile",
+    },
   },
   {
     "context": "EmptyPane || (Editor && vim_mode == normal)",
@@ -38,38 +38,38 @@
       "space c n": "workspace::ClearAllNotifications",
       "space c s": "buffer_search::Dismiss",
       "space l g": ["task::Spawn", { "task_name": "LazyGit" }],
-      "space g b": ["task::Spawn", { "task_name": "Git Branch" }]
-    }
+      "space g b": ["task::Spawn", { "task_name": "Git Branch" }],
+    },
   },
   {
     "context": "Editor && vim_mode == normal",
     "bindings": {
       "space c a": "editor::ToggleCodeActions",
-      "space c r": "editor::Rename"
-    }
+      "space c r": "editor::Rename",
+    },
   },
   {
     "context": "Editor && vim_mode == insert",
     "bindings": {
       "k j": ["workspace::SendKeystrokes", "escape"],
       "ctrl-a ctrl-i": "assistant::InlineAssist",
-      "tab": ["workspace::SendKeystrokes", "\t"]
-    }
+      // "tab": ["workspace::SendKeystrokes", "\t"],
+    },
   },
   {
     "context": "Editor && vim_mode == visual",
     "bindings": {
       ">": "editor::Indent",
-      "<": "editor::Outdent"
-    }
+      "<": "editor::Outdent",
+    },
   },
   {
     "context": "Editor && showing_completions",
     "bindings": {
       "ctrl-i": "editor::ConfirmCompletion",
-      "tab": ["workspace::SendKeystrokes", "\t"],
-      "enter": ["workspace::SendKeystrokes", "\n"]
-    }
+      // "tab": ["workspace::SendKeystrokes", "\t"],
+      "enter": ["workspace::SendKeystrokes", "\n"],
+    },
   },
   {
     "context": "!VimWaiting", // In "Terminal Panel" I want to be able to `ctrl-w` without latency.
@@ -77,33 +77,39 @@
       "ctrl-shift-h": "workspace::ActivatePaneLeft",
       "ctrl-shift-l": "workspace::ActivatePaneRight",
       "ctrl-shift-j": "workspace::ActivatePaneDown",
-      "ctrl-shift-k": "workspace::ActivatePaneUp"
-    }
+      "ctrl-shift-k": "workspace::ActivatePaneUp",
+    },
   },
 
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "shift-k": "editor::Hover"
-    }
+      "shift-k": "editor::Hover",
+    },
   },
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "space o": "tab_switcher::Toggle"
-    }
+      "space o": "tab_switcher::Toggle",
+    },
   },
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
     "bindings": {
       "shift-j": "editor::MoveLineDown",
-      "shift-k": "editor::MoveLineUp"
-    }
+      "shift-k": "editor::MoveLineUp",
+    },
   },
   {
     "context": "Diagnostics",
     "bindings": {
-      "space t w": "diagnostics::ToggleWarnings"
+      "space t w": "diagnostics::ToggleWarnings",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "cmd-l": "agent::QuoteSelection"
     }
   }
 ]
