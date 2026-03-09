@@ -15,7 +15,7 @@ return {
         multi_icon = " ",
         file_ignore_patterns = {
           "%.git",
-          "target/debug",
+          "target/",
           "node_modules",
           ".DS_Store",
         },
