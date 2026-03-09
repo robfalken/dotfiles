@@ -21,6 +21,8 @@ return {
       css = { "prettier" },
       json = { "prettier" },
       jsonc = { "prettier" },
+      rust = { "rustfmt" },
+      toml = { "taplo" },
     },
     format_on_save = {
       timeout_ms = 2000,

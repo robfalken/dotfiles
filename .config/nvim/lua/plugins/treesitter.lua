@@ -12,6 +12,8 @@ return {
       "json",
       "lua",
       "rust",
+      "ron",
+      "toml",
     }
 
     vim.treesitter.language.register("tsx", "typescriptreact")
