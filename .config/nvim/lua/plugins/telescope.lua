@@ -38,5 +38,8 @@ return {
     vim.keymap.set("n", "<leader>ss", "<cmd>Telescope treesitter<cr>", { desc = "Search symbols in current file" })
     vim.keymap.set("n", "<leader>sg", "<cmd>Telescope live_grep<cr>", { desc = "Search grep in project" })
     vim.keymap.set("n", "<leader>sw", "<cmd>Telescope grep_string<cr>", { desc = "Search word under cursor in project" })
+    vim.keymap.set("n", "<leader>sm", function()
+      require("telescope.builtin").marks({ path_display = { "smart" } })
+    end, { desc = "Search marks" })
   end,
 }

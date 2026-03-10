@@ -29,6 +29,8 @@ vim.g.maplocalleader = "\\"
 
 vim.keymap.set("i", "kj", "<Esc>", { desc = "Escape to Normal mode", remap = true })
 vim.keymap.set("n", ";", ":", { desc = "Cmd (alias for :)", remap = true })
+vim.keymap.set("n", "<C-Space><C-Space>", "<C-^>", { desc = "Toggle previous file" })
+vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   callback = function(ev)
