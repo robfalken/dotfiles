@@ -23,6 +23,7 @@ return {
       jsonc = { "prettier" },
       astro = { "prettier" },
       rust = { "rustfmt" },
+      lua = { "stylua" },
       toml = { "taplo" },
     },
     format_on_save = {
