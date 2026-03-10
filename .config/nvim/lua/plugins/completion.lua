@@ -10,7 +10,12 @@ return {
       build = "make install_jsregexp",
       dependencies = { "rafamadriz/friendly-snippets" },
       config = function()
+        local ls = require("luasnip")
         require("luasnip.loaders.from_vscode").lazy_load()
+        require("luasnip.loaders.from_lua").lazy_load()
+        ls.filetype_extend("typescript", { "javascript" })
+        ls.filetype_extend("typescriptreact", { "javascript" })
+        ls.filetype_extend("javascriptreact", { "javascript" })
       end,
     },
     "saadparwaiz1/cmp_luasnip",
@@ -29,6 +34,7 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
+        ["<C-i>"] = cmp.mapping.confirm({ select = true }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
