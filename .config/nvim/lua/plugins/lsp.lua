@@ -59,7 +59,9 @@ return {
       on_attach = function(_, bufnr)
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = bufnr,
-          command = "EslintFixAll",
+          callback = function()
+            pcall(vim.cmd.EslintFixAll)
+          end,
         })
       end,
     })
@@ -72,6 +74,6 @@ return {
       },
     })
 
-    vim.lsp.enable({ "ts_ls", "eslint", "html", "cssls", "jsonls", "astro" })
+    vim.lsp.enable({ "ts_ls", "tailwindcss", "eslint", "html", "cssls", "jsonls", "astro" })
   end,
 }

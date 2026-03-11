@@ -35,7 +35,14 @@ return {
     vim.keymap.set("n", "<leader>\\", "<cmd>Telescope file_browser hidden=true<cr>", {})
     vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files hidden=true<cr>", {})
     vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find sorting_strategy=ascending<cr>", {})
-    vim.keymap.set("n", "<leader>ss", "<cmd>Telescope treesitter<cr>", { desc = "Search symbols in current file" })
+    vim.keymap.set("n", "<leader>ss", function()
+      local clients = vim.lsp.get_clients({ bufnr = 0 })
+      if #clients > 0 then
+        require("telescope.builtin").lsp_document_symbols()
+      else
+        require("telescope.builtin").treesitter()
+      end
+    end, { desc = "Search symbols in current file" })
     vim.keymap.set("n", "<leader>sg", "<cmd>Telescope live_grep<cr>", { desc = "Search grep in project" })
     vim.keymap.set("n", "<leader>sw", "<cmd>Telescope grep_string<cr>", { desc = "Search word under cursor in project" })
     vim.keymap.set("n", "<leader>sm", function()

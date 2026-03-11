@@ -11,6 +11,7 @@ return {
     opts = {
       ensure_installed = {
         "ts_ls",
+        "tailwindcss",
         "eslint",
         "html",
         "cssls",

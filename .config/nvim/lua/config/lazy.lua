@@ -22,6 +22,10 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 vim.opt.list = true
 vim.opt.listchars = { tab = "▸ ", lead = "·", trail = "·", nbsp = "␣" }
 vim.g.mapleader = " "
@@ -31,6 +35,7 @@ vim.keymap.set("i", "kj", "<Esc>", { desc = "Escape to Normal mode", remap = tru
 vim.keymap.set("n", ";", ":", { desc = "Cmd (alias for :)", remap = true })
 vim.keymap.set("n", "<C-Space><C-Space>", "<C-^>", { desc = "Toggle previous file" })
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close buffer" })
 
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   callback = function(ev)
