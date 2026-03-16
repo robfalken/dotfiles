@@ -17,7 +17,6 @@ done
 
 autoload -Uz compinit && compinit
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-. "/Users/rf/.deno/env"
 
 # pnpm
 export PNPM_HOME="/Users/rf/Library/pnpm"
