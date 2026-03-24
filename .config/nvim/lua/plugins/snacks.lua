@@ -8,6 +8,7 @@ return {
   end,
   opts = {
     lazygit = { enabled = true },
+    toggle = { enabled = true },
     picker = {
       enabled = true,
       ui_select = true,
@@ -38,14 +39,17 @@ return {
     {
       "<leader>\\",
       function()
-        Snacks.picker.explorer({ hidden = true })
+        Snacks.picker.explorer({
+          hidden = false,
+          layout = { layout = { position = "right" } },
+        })
       end,
       desc = "Browse files",
     },
     {
       "<C-p>",
       function()
-        Snacks.picker.files({ hidden = true })
+        Snacks.picker.files({ hidden = false })
       end,
       desc = "Find files",
     },
@@ -60,8 +64,13 @@ return {
       "<leader>ss",
       function()
         local clients = vim.lsp.get_clients({ bufnr = 0 })
-        if #clients > 0 then
-          Snacks.picker.lsp_symbols()
+        local has_symbol_support = vim.iter(clients):any(function(c)
+          return c.supports_method("textDocument/documentSymbol")
+        end)
+        if has_symbol_support then
+          Snacks.picker.lsp_symbols({
+            filter = { typescript = true, typescriptreact = true },
+          })
         else
           Snacks.picker.treesitter()
         end
