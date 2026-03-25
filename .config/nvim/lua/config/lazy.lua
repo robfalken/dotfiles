@@ -37,6 +37,13 @@ vim.keymap.set("n", "<C-Space><C-Space>", "<C-^>", { desc = "Toggle previous fil
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close buffer" })
 
+vim.api.nvim_set_hl(0, "YankFlash", { bg = "#ff9e64", fg = "#333333" })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "YankFlash", timeout = 200 })
+  end,
+})
+
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   callback = function(ev)
     if vim.bo[ev.buf].filetype == "" then
