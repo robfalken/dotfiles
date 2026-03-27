@@ -18,6 +18,7 @@ return {
         "jsonls",
         "rust_analyzer",
         "astro",
+        "marksman",
       },
       automatic_installation = true,
     },

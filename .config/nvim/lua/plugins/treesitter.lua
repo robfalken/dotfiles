@@ -15,6 +15,8 @@ return {
       "ron",
       "toml",
       "astro",
+      "markdown",
+      "markdown_inline",
     }
 
     vim.treesitter.language.register("tsx", "typescriptreact")

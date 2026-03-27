@@ -25,6 +25,7 @@ return {
       rust = { "rustfmt" },
       lua = { "stylua" },
       toml = { "taplo" },
+      markdown = { "prettier" },
     },
     format_on_save = {
       timeout_ms = 2000,
