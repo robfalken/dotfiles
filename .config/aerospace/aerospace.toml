@@ -68,7 +68,7 @@ inner.vertical = 10
 outer.left = 10
 outer.bottom = 10
 outer.right = 10
-outer.top = [{ monitor."LG" = 39 }, 10]
+outer.top = 10
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -180,18 +180,6 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
-if.app-id = 'net.kovidgoyal.kitty'
-run = ['move-node-to-workspace 8']
-
-[[on-window-detected]]
-if.app-id = 'dev.zed.Zed'
-run = ['move-node-to-workspace 8']
-
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-run = ['move-node-to-workspace 9']
-
-[[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = ['move-node-to-workspace 7']
 
@@ -216,5 +204,5 @@ if.app-id = 'com.adobe.lightroomCC'
 run = ['move-node-to-workspace 5']
 
 [[on-window-detected]]
-if.app-id = 'com.runningwithcrayons.Alfred-Preferences'
+if.app-id = 'com.pixelmatorteam.pixelmator.touch.x.photo'
 run = ['move-node-to-workspace 2']
