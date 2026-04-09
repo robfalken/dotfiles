@@ -27,6 +27,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = true, silent = true })
+  end,
+})
+
 vim.diagnostic.config({
   virtual_text = true,
   signs = {
@@ -47,7 +54,8 @@ vim.lsp.config("*", { capabilities = capabilities })
 vim.lsp.config("ts_ls", {
   init_options = {
     preferences = {
-      importModuleSpecifierPreference = "non-relative",
+      importModuleSpecifierPreference = "relative",
+      completeFunctionCalls = false,
     },
   },
 })

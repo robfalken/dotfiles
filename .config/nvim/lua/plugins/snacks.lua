@@ -4,6 +4,12 @@ require("snacks").setup({
   picker = {
     enabled = true,
     ui_select = true,
+    formatters = {
+      file = {
+        truncate = 60,
+        filename_first = true,
+      },
+    },
     sources = {
       projects = {
         patterns = { ".git", "Makefile", "package.json", "Cargo.toml" },
@@ -59,6 +65,10 @@ end, { desc = "Search grep in project" })
 vim.keymap.set({ "n", "x" }, "<leader>sw", function()
   Snacks.picker.grep_word()
 end, { desc = "Search word under cursor in project" })
+
+vim.keymap.set("n", "<leader>sb", function()
+  Snacks.picker.buffers()
+end, { desc = "Search buffers" })
 
 vim.keymap.set("n", "<leader>sm", function()
   Snacks.picker.marks()
