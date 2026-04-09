@@ -8,6 +8,7 @@ shell-integration-features = no-cursor
 keybind = ctrl+\=new_split:right
 keybind = ctrl+shift+\=new_split:down
 
+macos-icon = holographic
 background = #1E1F2A
 
 keybind = global:cmd+ctrl+alt+shift+q=toggle_quick_terminal
