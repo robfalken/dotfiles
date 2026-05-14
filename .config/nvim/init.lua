@@ -80,7 +80,7 @@ vim.pack.add({
   "https://github.com/nvimtools/hydra.nvim",
 
   -- Colorscheme
-  "https://github.com/sainnhe/everforest",
+  "https://github.com/rose-pine/neovim",
 
   -- Treesitter
   "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -128,7 +128,7 @@ vim.pack.add({
 }, { load = true })
 
 -- Configure plugins (order matters for dependencies)
-require("plugins.everforest")
+require("plugins.rose-pine")
 require("plugins.treesitter")
 require("plugins.snacks")
 require("plugins.which-key")

@@ -1,5 +1,7 @@
 # cmd+shift+comma reloads config
 
+theme = Rose Pine Dawn
+
 font-family = "Zed Plex Mono"
 cursor-style = block
 cursor-style-blink = false
@@ -9,29 +11,3 @@ keybind = ctrl+\=new_split:right
 keybind = ctrl+shift+\=new_split:down
 
 macos-icon = holographic
-background = #1E1F2A
-
-keybind = global:cmd+ctrl+alt+shift+q=toggle_quick_terminal
-
-palette = 0=#16161d
-palette = 1=#c34043
-palette = 2=#76946a
-palette = 3=#c0a36e
-palette = 4=#7e9cd8
-palette = 5=#957fb8
-palette = 6=#6a9589
-palette = 7=#c8c093
-palette = 8=#727169
-palette = 9=#e82424
-palette = 10=#98bb6c
-palette = 11=#e6c384
-palette = 12=#7fb4ca
-palette = 13=#938aa9
-palette = 14=#7aa89f
-palette = 15=#dcd7ba
-
-background = 1f1f28
-foreground = dcd7ba
-cursor-color = c8c093
-selection-background = 2d4f67
-selection-foreground = c8c093
