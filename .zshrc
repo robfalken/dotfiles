@@ -3,6 +3,7 @@ if [[ ":$FPATH:" != *":/Users/rf/.zsh/completions:"* ]]; then export FPATH="/Use
 export PATH="/opt/homebrew/bin:${PATH}"
 export XDG_CONFIG_HOME="$HOME/.config"
 export BREW_PREFIX="$(brew --prefix)"
+export EDITOR=nvim
 
 # source $XDG_CONFIG_HOME/zsh/alias.sh
 # source $XDG_CONFIG_HOME/zsh/eval.sh
