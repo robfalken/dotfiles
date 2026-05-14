@@ -77,3 +77,7 @@ end, { desc = "Search marks" })
 vim.keymap.set("n", "<leader>sp", function()
   Snacks.picker.projects()
 end, { desc = "Search projects" })
+
+vim.keymap.set("n", "<leader>sk", function()
+  Snacks.picker.keymaps()
+end, { desc = "Search keymaps" })

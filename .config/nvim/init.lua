@@ -22,6 +22,7 @@ vim.keymap.set("n", ";", ":", { desc = "Cmd (alias for :)", remap = true })
 vim.keymap.set("n", "<C-Space><C-Space>", "<C-^>", { desc = "Toggle previous file" })
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>cs", "<cmd>noh<cr>", { desc = "Clear search" })
 
 -- Autocommands
 vim.api.nvim_set_hl(0, "YankFlash", { bg = "#ff9e64", fg = "#333333" })
@@ -79,13 +80,14 @@ vim.pack.add({
   "https://github.com/nvimtools/hydra.nvim",
 
   -- Colorscheme
-  "https://github.com/rebelot/kanagawa.nvim",
+  "https://github.com/sainnhe/everforest",
 
   -- Treesitter
   "https://github.com/nvim-treesitter/nvim-treesitter",
 
   -- UI / Navigation
   "https://github.com/folke/snacks.nvim",
+  "https://github.com/folke/which-key.nvim",
   "https://github.com/stevearc/oil.nvim",
 
   -- Completion
@@ -126,9 +128,10 @@ vim.pack.add({
 }, { load = true })
 
 -- Configure plugins (order matters for dependencies)
-require("plugins.kanagawa")
+require("plugins.everforest")
 require("plugins.treesitter")
 require("plugins.snacks")
+require("plugins.which-key")
 require("plugins.oil")
 require("plugins.completion")
 require("plugins.autopairs")
