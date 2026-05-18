@@ -23,6 +23,9 @@ vim.keymap.set("n", "<C-Space><C-Space>", "<C-^>", { desc = "Toggle previous fil
 vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>cs", "<cmd>noh<cr>", { desc = "Clear search" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent and reselect" })
+vim.keymap.set("n", "<leader>n", "<cmd>noh<cr>", { desc = "Clear search highlight" })
+vim.keymap.set("v", "<", "<gv", { desc = "Outdent and reselect" })
 
 -- Autocommands
 vim.api.nvim_set_hl(0, "YankFlash", { bg = "#ff9e64", fg = "#333333" })

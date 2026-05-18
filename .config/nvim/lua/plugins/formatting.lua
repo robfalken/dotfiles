@@ -13,6 +13,7 @@ require("conform").setup({
     lua = { "stylua" },
     toml = { "taplo" },
     markdown = { "prettier" },
+    graphql = { "prettier" },
   },
   format_on_save = {
     timeout_ms = 2000,

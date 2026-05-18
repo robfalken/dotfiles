@@ -42,6 +42,10 @@ vim.api.nvim_create_autocmd("FileType", {
       return
     end
 
-    vim.treesitter.start(buf, lang)
+    vim.schedule(function()
+      if vim.api.nvim_buf_is_valid(buf) then
+        vim.treesitter.start(buf, lang)
+      end
+    end)
   end,
 })
