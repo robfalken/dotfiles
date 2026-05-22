@@ -4,6 +4,7 @@ export PATH="/opt/homebrew/bin:${PATH}"
 export XDG_CONFIG_HOME="$HOME/.config"
 export BREW_PREFIX="$(brew --prefix)"
 export EDITOR=nvim
+bindkey -e  # force emacs keymap (otherwise EDITOR=nvim makes zsh default to vi mode)
 
 # source $XDG_CONFIG_HOME/zsh/alias.sh
 # source $XDG_CONFIG_HOME/zsh/eval.sh
