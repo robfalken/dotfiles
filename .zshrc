@@ -4,6 +4,8 @@ export PATH="/opt/homebrew/bin:${PATH}"
 export XDG_CONFIG_HOME="$HOME/.config"
 export BREW_PREFIX="$(brew --prefix)"
 export EDITOR=nvim
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 bindkey -e  # force emacs keymap (otherwise EDITOR=nvim makes zsh default to vi mode)
 
 # source $XDG_CONFIG_HOME/zsh/alias.sh
@@ -28,3 +30,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 export PATH="$HOME/.local/bin:$PATH"
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
