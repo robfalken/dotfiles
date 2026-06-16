@@ -180,6 +180,18 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['move-node-to-workspace 2']
+
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
+run = ['move-node-to-workspace 3']
+
+[[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = ['move-node-to-workspace 7']
 
@@ -188,21 +200,9 @@ if.app-id = 'com.apple.MobileSMS'
 run = ['move-node-to-workspace 7']
 
 [[on-window-detected]]
-if.app-id = 'com.hnc.Discord'
-run = ['move-node-to-workspace 7']
-
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = ['move-node-to-workspace 4']
-
-[[on-window-detected]]
 if.app-id = 'com.spotify.client'
-run = ['move-node-to-workspace 6']
-
-[[on-window-detected]]
-if.app-id = 'com.adobe.lightroomCC'
-run = ['move-node-to-workspace 5']
+run = ['move-node-to-workspace 8']
 
 [[on-window-detected]]
 if.app-id = 'com.pixelmatorteam.pixelmator.touch.x.photo'
-run = ['move-node-to-workspace 2']
+run = ['move-node-to-workspace 9']
