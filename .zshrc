@@ -33,3 +33,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Vite+ bin (https://viteplus.dev)
 . "$HOME/.vite-plus/env"
+
+if [[ -n "$FNM_MULTISHELL_PATH" ]]; then
+  path=("$FNM_MULTISHELL_PATH/bin" ${path:#$FNM_MULTISHELL_PATH/bin})
+fi

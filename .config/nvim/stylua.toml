@@ -1,0 +1,5 @@
+# Match the editor settings in lua/config/options.lua. StyLua defaults to tabs
+# at width 4, which would rewrite this whole config on the first save.
+indent_type = "Spaces"
+indent_width = 2
+column_width = 100

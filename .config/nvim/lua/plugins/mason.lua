@@ -1,25 +1,9 @@
-require("mason").setup()
+-- Installs LSP servers only. Formatters and linters come from Homebrew so the
+-- same binaries are available to the shell, pre-commit hooks, and other tools.
+return {
+  src = "https://github.com/mason-org/mason.nvim",
 
-require("mason-lspconfig").setup({
-  ensure_installed = {
-    "ts_ls",
-    "tailwindcss",
-    "eslint",
-    "html",
-    "stylua",
-    "cssls",
-    "jsonls",
-    "rust_analyzer",
-    "astro",
-    "marksman",
-    "taplo",
-  },
-  automatic_installation = true,
-})
-
-require("mason-nvim-dap").setup({
-  ensure_installed = {
-    "codelldb",
-  },
-  automatic_installation = true,
-})
+  setup = function()
+    require("mason").setup()
+  end,
+}

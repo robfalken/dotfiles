@@ -1,32 +1,24 @@
-require("oil").setup({
-  default_file_explorer = true,
-  columns = { "icon", "permissions", "size", "mtime" },
-  view_options = {
-    show_hidden = true,
-  },
-  float = {
-    preview_split = "right",
-  },
-  keymaps = {
-    ["g?"] = "actions.show_help",
-    ["<CR>"] = "actions.select",
-    ["<C-v>"] = { "actions.select", opts = { vertical = true } },
-    ["<C-s>"] = { "actions.select", opts = { horizontal = true } },
-    ["<C-t>"] = { "actions.select", opts = { tab = true } },
-    ["<C-p>"] = "actions.preview",
-    ["<C-c>"] = "actions.close",
-    ["<C-r>"] = "actions.refresh",
-    ["-"] = "actions.parent",
-    ["_"] = "actions.open_cwd",
-    ["`"] = "actions.cd",
-    ["~"] = { "actions.cd", opts = { scope = "tab" } },
-    ["gs"] = "actions.change_sort",
-    ["gx"] = "actions.open_external",
-    ["g."] = "actions.toggle_hidden",
-    ["g\\"] = "actions.toggle_trash",
-  },
-})
+return {
+  src = "https://github.com/stevearc/oil.nvim",
 
-vim.keymap.set("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
-vim.keymap.set("n", "<leader>-", "<cmd>Oil .<cr>", { desc = "Open root (cwd)" })
-vim.keymap.set("n", "<leader>of", "<cmd>Oil --float<cr>", { desc = "Open oil (floating)" })
+  setup = function()
+    require("oil").setup({
+      -- Take over netrw so `:e <dir>` and `nvim <dir>` open oil.
+      default_file_explorer = true,
+
+      view_options = {
+        show_hidden = true,
+      },
+
+      keymaps = {
+        ["q"] = { "actions.close", mode = "n" },
+      },
+    })
+
+    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory (oil)" })
+
+    vim.keymap.set("n", "_", function()
+      require("oil").open(vim.fn.getcwd())
+    end, { desc = "Open cwd (oil)" })
+  end,
+}
