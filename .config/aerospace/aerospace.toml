@@ -116,6 +116,23 @@ ctrl-shift-l = 'move right'
 alt-shift-cmd-ctrl-minus = 'resize smart -100'
 alt-shift-cmd-ctrl-equal = 'resize smart +100'
 
+# See: https://nikitabobko.github.io/AeroSpace/commands#layout
+alt-shift-cmd-ctrl-slash = [
+  'exec-and-forget /bin/sh -c "echo slash >> $HOME/.cache/aerospace-key.log"',
+  'layout tiles horizontal vertical',
+]
+
+# --- BEGIN keycode probe (temporary, remove when done) ---
+alt-shift-cmd-ctrl-backslash = 'exec-and-forget /bin/sh -c "echo backslash >> $HOME/.cache/aerospace-key.log"'
+alt-shift-cmd-ctrl-period = 'exec-and-forget /bin/sh -c "echo period >> $HOME/.cache/aerospace-key.log"'
+alt-shift-cmd-ctrl-comma = 'exec-and-forget /bin/sh -c "echo comma >> $HOME/.cache/aerospace-key.log"'
+alt-shift-cmd-ctrl-quote = 'exec-and-forget /bin/sh -c "echo quote >> $HOME/.cache/aerospace-key.log"'
+alt-shift-cmd-ctrl-semicolon = 'exec-and-forget /bin/sh -c "echo semicolon >> $HOME/.cache/aerospace-key.log"'
+alt-shift-cmd-ctrl-leftSquareBracket = 'exec-and-forget /bin/sh -c "echo leftSquareBracket >> $HOME/.cache/aerospace-key.log"'
+alt-shift-cmd-ctrl-rightSquareBracket = 'exec-and-forget /bin/sh -c "echo rightSquareBracket >> $HOME/.cache/aerospace-key.log"'
+alt-shift-cmd-ctrl-backtick = 'exec-and-forget /bin/sh -c "echo backtick >> $HOME/.cache/aerospace-key.log"'
+# --- END keycode probe ---
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-shift-cmd-ctrl-0 = 'workspace 0'
 alt-shift-cmd-ctrl-1 = 'workspace 1'
