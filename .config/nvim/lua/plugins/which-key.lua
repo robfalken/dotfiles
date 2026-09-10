@@ -20,9 +20,13 @@ return {
       { "grx", icon = " " },
       { "<leader>b", group = "buffer" },
       { "<leader>c", group = "code" },
-      { "<leader>g", group = "Git" },
+      { "<leader>g", group = "Git", icon = " " },
       { "<leader>l", group = "LazyGit" },
       { "<leader>s", group = "Search" },
+      -- Hunk motions from the gitsigns spec; the mappings themselves are
+      -- buffer-local, these just name the keys in the popup.
+      { "]h", desc = "Next hunk", icon = " " },
+      { "[h", desc = "Previous hunk", icon = " " },
     })
   end,
 }

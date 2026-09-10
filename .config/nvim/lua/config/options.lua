@@ -12,6 +12,14 @@ vim.opt.relativenumber = true
 -- diagnostics or git signs appear.
 vim.opt.signcolumn = "yes"
 
+-- Case-insensitive search, except when the pattern contains a capital.
+-- smartcase does nothing on its own -- it only softens ignorecase -- so the
+-- two are always set together. This covers / and ? but NOT * and #, which
+-- search for the word under the cursor literally, and it also reaches
+-- :substitute: use \C in a pattern to force a case-sensitive match.
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- Highlight the cursor's line and line number. Set cursorlineopt = "number"
 -- for just the number if the background tint gets distracting.
 vim.opt.cursorline = true

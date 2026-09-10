@@ -14,11 +14,14 @@ local plugins = {
   "devicons",
   "oil",
   "snacks",
+  "gitsigns",
+  "flash",
   "which-key",
   "nui",
   "noice",
   "mason",
   "blink",
+  "lazydev",
   "lspconfig",
   "mason-lspconfig",
   "conform",
@@ -48,3 +51,4 @@ for i, spec in ipairs(specs) do
 end
 
 require("config.keymaps")
+require("config.autocmds")

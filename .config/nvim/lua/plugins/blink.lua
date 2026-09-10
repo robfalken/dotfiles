@@ -25,7 +25,19 @@ return {
 
       appearance = { nerd_font_variant = "mono" },
 
-      sources = { default = { "lsp", "path", "snippets", "buffer" } },
+      sources = {
+        -- lazydev ahead of lsp: it completes module names inside require(),
+        -- which lua_ls cannot do for a plugin it has not loaded yet. The
+        -- score offset keeps those above the buffer-word matches.
+        default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+        providers = {
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
+        },
+      },
 
       completion = {
         documentation = { auto_show = true, auto_show_delay_ms = 200 },
