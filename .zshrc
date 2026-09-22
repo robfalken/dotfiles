@@ -4,7 +4,7 @@ export PATH="/opt/homebrew/bin:${PATH}"
 export XDG_CONFIG_HOME="$HOME/.config"
 export BREW_PREFIX="$(brew --prefix)"
 export EDITOR=nvim
-export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+export WORDCHARS='*?_.[]~=&;!#$%^(){}<>'
 
 bindkey -e  # force emacs keymap (otherwise EDITOR=nvim makes zsh default to vi mode)
 
