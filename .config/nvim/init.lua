@@ -5,6 +5,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 require("config.options")
+require("config.filetypes")
 
 -- Plugins. Each module in lua/plugins/ returns { src, name?, setup } so a
 -- plugin is described in exactly one file. Order here is load order: an

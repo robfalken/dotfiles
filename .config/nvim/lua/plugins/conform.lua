@@ -10,6 +10,10 @@ return {
         javascriptreact = { "oxfmt" },
         typescript = { "oxfmt" },
         typescriptreact = { "oxfmt" },
+        -- Whichever of OpenTofu and Terraform is installed; the two produce
+        -- the same canonical style.
+        terraform = { "tofu_fmt", "terraform_fmt", stop_after_first = true },
+        ["terraform-vars"] = { "tofu_fmt", "terraform_fmt", stop_after_first = true },
       },
 
       -- conform passes an inclusive end offset, but stylua treats --range-end

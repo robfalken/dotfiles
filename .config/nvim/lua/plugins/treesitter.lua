@@ -17,10 +17,12 @@ return {
     local ensure = {
       "bash",
       "css",
+      "hcl",
       "html",
       "javascript",
       "json",
       "regex",
+      "terraform",
       "toml",
       "tsx",
       "typescript",

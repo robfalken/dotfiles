@@ -10,15 +10,12 @@ return {
       keymap = {
         preset = "default",
 
-        -- Accept on <C-i> instead of <C-y>.
-        --
-        -- Terminals send the same byte (0x09) for <C-i> and <Tab>, and only
-        -- distinguish them with the kitty keyboard protocol. This tmux does
-        -- not pass it through, so both keys land here -- which is why <Tab>
-        -- is given the same command list rather than left on snippet_forward.
+        -- <C-i> accepts instead of <C-y>, but it is mapped below, not here:
+        -- blink compares keys after nvim_replace_termcodes(), where <C-i> and
+        -- <Tab> are both "\t", so a <C-i> entry here silently overwrites the
+        -- <Tab> one (or vice versa) and only a <Tab> mapping gets created.
         -- Commands run in order until one succeeds: accept an open menu,
         -- otherwise jump a snippet, otherwise insert a literal tab.
-        ["<C-i>"] = { "select_and_accept", "snippet_forward", "fallback" },
         ["<Tab>"] = { "select_and_accept", "snippet_forward", "fallback" },
         ["<C-y>"] = false,
       },
@@ -46,6 +43,20 @@ return {
       -- Warn instead of silently degrading if the Rust matcher is unavailable.
       fuzzy = { implementation = "prefer_rust_with_warning" },
     })
+
+    -- <C-i> is a separate key from <Tab> here: tmux (extended-keys on, with
+    -- Ghostty's extkeys) sends it as CSI 27;5;105~ to panes that ask, and nvim
+    -- does. Unlike <Tab> it has no fallback, so with nothing to accept it does
+    -- nothing rather than inserting a tab.
+    --
+    -- The "blink.cmp: " desc prefix is load-bearing. <Tab>'s "fallback" runs
+    -- the first mapping whose lhs termcodes to "\t" -- which includes <C-i> --
+    -- unless its desc has that prefix. Without it <Tab> would fall back to
+    -- this no-op instead of nvim's built-in <Tab>.
+    vim.keymap.set("i", "<C-i>", function()
+      local cmp = require("blink.cmp")
+      if not cmp.select_and_accept() then cmp.snippet_forward() end
+    end, { desc = "blink.cmp: Accept completion or jump snippet (never a tab)" })
 
     -- blink does not register these itself. Servers must be told the client
     -- supports snippets, resolve, etc., or they send back thinner completions.

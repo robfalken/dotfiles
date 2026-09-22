@@ -206,6 +206,18 @@ return {
       end,
     })
 
+    -- terraform-ls handles completion, hover and schema validation on its own,
+    -- but shells out to a Terraform binary for `validate` and module
+    -- installation. It only ever looks for `terraform`, so point it at
+    -- OpenTofu when that is the one installed. terraform-ls ignores
+    -- `settings` (no didChangeConfiguration support); it has to be
+    -- init_options.
+    if vim.fn.executable("terraform") == 0 and vim.fn.executable("tofu") == 1 then
+      vim.lsp.config("terraformls", {
+        init_options = { terraform = { path = vim.fn.exepath("tofu") } },
+      })
+    end
+
     -- Neovim maps the gr* family itself, but labels them with the function
     -- name ("vim.lsp.buf.rename()"), which is what which-key then displays.
     -- Re-set them with the same calls and readable descriptions. The core
