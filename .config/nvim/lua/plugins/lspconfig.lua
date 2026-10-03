@@ -55,6 +55,19 @@ return {
     vim.diagnostic.config({
       virtual_text = { spacing = 2 },
       severity_sort = true,
+
+      -- Nerd Font codicons in place of the stock E/W/I/H letters. The sign
+      -- column is one cell wide and shared with gitsigns, so a glyph reads
+      -- faster than a capital letter sitting next to a bar. severity_sort
+      -- above decides which one wins when a line carries more than one.
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "",
+          [vim.diagnostic.severity.HINT] = "",
+        },
+      },
     })
 
     -- Colour swatches for anything a server reports as a colour -- in practice
@@ -212,6 +225,79 @@ return {
     -- OpenTofu when that is the one installed. terraform-ls ignores
     -- `settings` (no didChangeConfiguration support); it has to be
     -- init_options.
+    -- TypeScript 7 ships its own language server (`tsc --lsp`), and vtsls
+    -- cannot load it: there is no tsserver.js in 7, so vtsls quietly falls
+    -- back to its bundled 5.x. 7 also turned `strict` on by default, so a
+    -- tsconfig that leaves it unset was checked strictly by `tsc` and loosely
+    -- in the editor. Each buffer gets the server that matches the TypeScript
+    -- its project installs: tsgo for 7+, vtsls for everything else.
+    --
+    -- pnpm installs typescript per package, not at the workspace root, so
+    -- the search walks up from the file rather than starting at the root.
+    local function typescript_7_dir(bufnr)
+      local file = vim.api.nvim_buf_get_name(bufnr)
+      for dir in vim.fs.parents(file) do
+        local fd = io.open(dir .. "/node_modules/typescript/package.json", "r")
+        if fd then
+          local ok, pkg = pcall(vim.json.decode, fd:read("*a"))
+          fd:close()
+          local major = ok and tonumber(tostring(pkg.version):match("^(%d+)"))
+          return major and major >= 7 and dir or nil
+        end
+      end
+    end
+
+    -- One tsgo instance serves a whole monorepo from its root, but the binary
+    -- lives in whichever package first opened it; cmd only sees root_dir.
+    local tsc_for_root = {}
+    local tsgo_root_dir = vim.lsp.config.tsgo.root_dir
+    vim.lsp.config("tsgo", {
+      -- nvim-lspconfig's tsgo looks for a `tsgo` binary, which was the
+      -- preview's name; the 7.0 release ships it as plain `tsc`.
+      cmd = function(dispatchers, config)
+        return vim.lsp.rpc.start({ tsc_for_root[config.root_dir], "--lsp", "--stdio" }, dispatchers)
+      end,
+      root_dir = function(bufnr, on_dir)
+        local ts_dir = typescript_7_dir(bufnr)
+        if not ts_dir then
+          return
+        end
+        tsgo_root_dir(bufnr, function(root)
+          tsc_for_root[root] = tsc_for_root[root] or ts_dir .. "/node_modules/.bin/tsc"
+          on_dir(root)
+        end)
+      end,
+
+      -- tsgo pulls its preferences over workspace/configuration, asking for
+      -- "js/ts", "typescript", "javascript" and "editor". Neovim answers each
+      -- section out of `settings` and returns nil for anything missing -- so
+      -- with no settings at all the server falls back to its own defaults,
+      -- which are not tsserver's. vtsls set these itself, which is why the
+      -- difference only shows up on TypeScript 7 projects.
+      --
+      -- jsxAttributeCompletionStyle is the visible one: on "auto" accepting
+      -- `className` from the menu inserts `className="|"` with the cursor
+      -- between the quotes (braces instead for non-string attributes), which
+      -- is what tsserver has always done. Left unset, tsgo inserts the bare
+      -- attribute name.
+      settings = {
+        typescript = { preferences = { jsxAttributeCompletionStyle = "auto" } },
+        javascript = { preferences = { jsxAttributeCompletionStyle = "auto" } },
+      },
+    })
+
+    local vtsls_root_dir = vim.lsp.config.vtsls.root_dir
+    vim.lsp.config("vtsls", {
+      root_dir = function(bufnr, on_dir)
+        if not typescript_7_dir(bufnr) then
+          vtsls_root_dir(bufnr, on_dir)
+        end
+      end,
+    })
+    -- Not a mason package (the binary comes from the project), so
+    -- mason-lspconfig's automatic_enable never sees it.
+    vim.lsp.enable("tsgo")
+
     if vim.fn.executable("terraform") == 0 and vim.fn.executable("tofu") == 1 then
       vim.lsp.config("terraformls", {
         init_options = { terraform = { path = vim.fn.exepath("tofu") } },
