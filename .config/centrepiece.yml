@@ -1,0 +1,8 @@
+# Centrepiece configuration. See centrepiece.example.yml in the repo for every key.
+
+# auto (follow the system), light, or dark.
+theme: dark
+launch_at_login: true
+plugins:
+  clipboard:
+    hotkey: alt-cmd-p
