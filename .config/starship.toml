@@ -7,5 +7,8 @@ symbol = '󰘬 '
 [rust]
 symbol = ' '
 
+[swift]
+symbol = ' '
+
 [package]
 symbol = "󰏗 "
