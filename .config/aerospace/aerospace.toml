@@ -147,7 +147,11 @@ alt-shift-cmd-ctrl-9 = 'workspace 9'
 
 # TODO: Find other binds for these:
 # alt-shift-cmd-ctrl-z = 'fullscreen'
-# alt-shift-cmd-ctrl-f = 'layout floating tiling'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#layout
+alt-shift-cmd-ctrl-f = 'layout floating'
+alt-shift-cmd-ctrl-t = 'layout tiling'
+alt-shift-cmd-ctrl-r = 'exec-and-forget ~/.config/aerospace/center-float.sh'
 
 alt-shift-cmd-ctrl-z = 'exec-and-forget /bin/zsh -c "focus_window dev.zed.Zed"'
 
