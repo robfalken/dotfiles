@@ -298,6 +298,11 @@ return {
     -- mason-lspconfig's automatic_enable never sees it.
     vim.lsp.enable("tsgo")
 
+    -- rust-analyzer comes from Homebrew, not mason, so it is outside
+    -- automatic_enable too. It should match the installed toolchain, which
+    -- is why it is not pinned to a mason build.
+    vim.lsp.enable("rust_analyzer")
+
     if vim.fn.executable("terraform") == 0 and vim.fn.executable("tofu") == 1 then
       vim.lsp.config("terraformls", {
         init_options = { terraform = { path = vim.fn.exepath("tofu") } },
