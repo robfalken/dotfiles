@@ -11,7 +11,7 @@ require("config.filetypes")
 -- plugin is described in exactly one file. Order here is load order: an
 -- icon provider or colorscheme goes before whatever consumes it.
 local plugins = {
-  "rose-pine",
+  "catppuccin",
   "devicons",
   "oil",
   "snacks",

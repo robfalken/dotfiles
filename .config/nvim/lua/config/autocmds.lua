@@ -7,8 +7,8 @@
 -- unless the operator was "y") and stays quiet while a macro replays, so this
 -- only fires on a yank you performed yourself.
 --
--- YankFlash is defined in the rose-pine spec, where the palette role name
--- resolves per variant instead of pinning one hex.
+-- YankFlash is defined in the catppuccin spec, where the palette role name
+-- resolves per flavour instead of pinning one hex.
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("yank_highlight", { clear = true }),
   callback = function()

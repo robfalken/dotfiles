@@ -99,7 +99,7 @@ return {
     end)
 
     -- Linked to the theme's own groups rather than hardcoded colours so
-    -- rose-pine keeps control of them. The cursors need to read as cursors,
+    -- catppuccin keeps control of them. The cursors need to read as cursors,
     -- hence reverse; MatchPreview is the next occurrence <C-n> would take,
     -- shown before it is taken.
     local hl = vim.api.nvim_set_hl

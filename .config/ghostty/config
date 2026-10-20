@@ -1,6 +1,6 @@
 # cmd+shift+comma reloads config
 
-theme = Rose Pine Dawn
+theme = Catppuccin Macchiato
 
 font-family = "Zed Plex Mono"
 cursor-style = block

@@ -1,8 +1,8 @@
 -- Editor options. Loaded before plugins so colorschemes and UI plugins see
--- the final values (rose-pine reads 'background' when picking its variant).
+-- the final values (catppuccin reads 'background' when picking its flavour).
 
 vim.o.termguicolors = true
-vim.o.background = "light"
+vim.o.background = "dark"
 
 -- Line numbers, relative to the cursor line for easy motion counts.
 vim.opt.number = true
