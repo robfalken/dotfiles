@@ -1,0 +1,14 @@
+onboarding = false
+
+[keys]
+split_vertical = "prefix+|"
+rename_tab = "prefix+comma"
+new_tab = "prefix+t"
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+
+[[keys.command]]
+key = "prefix+i"
+type = "shell"
+command = "~/.local/bin/workspace-init"
+description = "init workspace tabs"
