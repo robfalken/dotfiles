@@ -219,6 +219,96 @@ return {
       end,
     })
 
+    -- The CSS server is what puts colour swatches next to hex, rgb() and hsl()
+    -- values in stylesheets, through the same document_color setting above.
+    -- Its linter knows nothing of Tailwind, so in a v4 stylesheet every
+    -- @theme, @apply and @utility is flagged as an unknown at-rule; silence
+    -- just that check.
+    local css_settings = { lint = { unknownAtRules = "ignore" } }
+    vim.lsp.config("cssls", {
+      settings = { css = css_settings },
+    })
+
+    -- The CSS server does not look inside at-rules it does not know, and
+    -- Tailwind's are among them: a hex in :root gets a swatch, the same hex
+    -- in @theme does not, and the Tailwind server only colours @apply
+    -- classes. Treesitter parses those blocks as ordinary declarations, so
+    -- the gap is filled from there with the swatch Neovim draws for an LSP
+    -- colour (U+F0C8 inline, in the colour's foreground). Only these
+    -- at-rules, so nothing the CSS server already colours gets two.
+    local swatch_ns = vim.api.nvim_create_namespace("css_at_rule_colors")
+    local swatch_group = vim.api.nvim_create_augroup("css_at_rule_colors", { clear = true })
+    local swatch_query
+    local swatch_hls = {}
+    -- #rgb, #rgba, #rrggbb and #rrggbbaa, counting the #.
+    local hex_lengths = { [4] = true, [5] = true, [7] = true, [9] = true }
+
+    local function swatch_hl(hex)
+      hex = hex:sub(2)
+      -- #rgb and #rgba to #rrggbb; alpha has no meaning for a text colour.
+      hex = #hex <= 4 and (hex:sub(1, 3):gsub(".", "%0%0")) or hex:sub(1, 6)
+      local name = "CssAtRuleColor_" .. hex:lower()
+      if not swatch_hls[name] then
+        swatch_hls[name] = "#" .. hex
+        vim.api.nvim_set_hl(0, name, { fg = swatch_hls[name] })
+      end
+      return name
+    end
+
+    local function draw_swatches(buf)
+      vim.api.nvim_buf_clear_namespace(buf, swatch_ns, 0, -1)
+      local parser = vim.treesitter.get_parser(buf, "css", { error = false })
+      if not parser then
+        return
+      end
+      swatch_query = swatch_query
+        or vim.treesitter.query.parse(
+          "css",
+          [[
+            (at_rule
+              (at_keyword) @keyword
+              (block (declaration (color_value) @color))
+              (#any-of? @keyword "@theme" "@utility" "@variant" "@custom-variant"))
+          ]]
+        )
+      local root = parser:parse()[1]:root()
+      for id, node in swatch_query:iter_captures(root, buf) do
+        local hex = vim.treesitter.get_node_text(node, buf)
+        if swatch_query.captures[id] == "color" and hex:match("^#%x+$") and hex_lengths[#hex] then
+          local row, col = node:start()
+          vim.api.nvim_buf_set_extmark(buf, swatch_ns, row, col, {
+            virt_text = { { "\u{f0c8} ", swatch_hl(hex) } },
+            virt_text_pos = "inline",
+          })
+        end
+      end
+    end
+
+    vim.api.nvim_create_autocmd("FileType", {
+      group = swatch_group,
+      pattern = "css",
+      callback = function(args)
+        draw_swatches(args.buf)
+        vim.api.nvim_clear_autocmds({ group = swatch_group, buffer = args.buf })
+        vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
+          group = swatch_group,
+          buffer = args.buf,
+          callback = function()
+            draw_swatches(args.buf)
+          end,
+        })
+      end,
+    })
+    -- Loading a colorscheme clears every highlight group, these included.
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      group = swatch_group,
+      callback = function()
+        for name, hex in pairs(swatch_hls) do
+          vim.api.nvim_set_hl(0, name, { fg = hex })
+        end
+      end,
+    })
+
     -- terraform-ls handles completion, hover and schema validation on its own,
     -- but shells out to a Terraform binary for `validate` and module
     -- installation. It only ever looks for `terraform`, so point it at
