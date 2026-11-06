@@ -53,8 +53,14 @@ return {
 
   setup = function()
     vim.diagnostic.config({
-      virtual_text = { spacing = 2 },
+      -- No inline text: the CursorHold float in config/autocmds.lua shows the
+      -- full message under the cursor, so end-of-line text is just clutter.
+      virtual_text = false,
       severity_sort = true,
+
+      -- source = true names the server or linter behind each message, which
+      -- matters here since LSP and nvim-lint (oxlint) both report.
+      float = { border = "rounded", source = true },
 
       -- Nerd Font codicons in place of the stock E/W/I/H letters. The sign
       -- column is one cell wide and shared with gitsigns, so a glyph reads
@@ -172,6 +178,11 @@ return {
             classRegex = {
               { "(?:cn|cva|clsx|cx|twMerge|twJoin)\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
               { "tw`([^`]*)" },
+              -- twc.button`...`, twc.className<Props>`...`, twc(Link)`...`
+              -- and twc.a.attrs({...})`...`: the template literal after the
+              -- tag, whatever generic or call sits between.
+              { "twc\\.[^`]+`([^`]*)`" },
+              { "twc\\(.*?\\).*?`([^`]*)`" },
             },
           },
         },

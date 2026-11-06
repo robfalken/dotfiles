@@ -15,3 +15,19 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.hl.on_yank({ higroup = "YankFlash", timeout = 150 })
   end,
 })
+
+-- Show the diagnostic under the cursor in a float once the cursor rests
+-- ('updatetime', set in options.lua). scope = "cursor" limits it to the
+-- diagnostic at the cursor rather than everything on the line, so it adds the
+-- full message that virtual_text truncates. Not focusable, so it never steals
+-- the cursor, and it closes as soon as you move or start typing.
+vim.api.nvim_create_autocmd("CursorHold", {
+  group = vim.api.nvim_create_augroup("diagnostic_float", { clear = true }),
+  callback = function()
+    vim.diagnostic.open_float(nil, {
+      focusable = false,
+      scope = "cursor",
+      close_events = { "CursorMoved", "InsertEnter", "BufLeave" },
+    })
+  end,
+})

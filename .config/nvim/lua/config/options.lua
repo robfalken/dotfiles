@@ -44,3 +44,8 @@ vim.opt.listchars = { tab = "▸ ", leadmultispace = "│ ", trail = "␠", nbsp
 -- a literal `k` for a full second. The cost is a tighter window to finish
 -- multi-key sequences like <leader>bd.
 vim.opt.timeoutlen = 300
+
+-- How long the cursor must sit still before CursorHold fires (and swap is
+-- written). The default 4000 makes the diagnostic float in autocmds.lua feel
+-- unresponsive; 250 is quick without flashing a float on every pass-through.
+vim.opt.updatetime = 250

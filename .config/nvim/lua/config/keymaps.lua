@@ -20,3 +20,12 @@ vim.keymap.set("n", "<leader><leader>", "<C-^>", { desc = "Toggle previous file"
 -- not "v": "v" also covers Select mode, where these keys must stay literal.
 vim.keymap.set("x", ">", ">gv", { desc = "Indent and reselect" })
 vim.keymap.set("x", "<", "<gv", { desc = "Outdent and reselect" })
+
+-- Override the built-in ]d / [d so landing on a diagnostic opens its float
+-- straight away, rather than waiting out 'updatetime' for CursorHold.
+vim.keymap.set("n", "]d", function()
+  vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Next diagnostic" })
+vim.keymap.set("n", "[d", function()
+  vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = "Previous diagnostic" })
